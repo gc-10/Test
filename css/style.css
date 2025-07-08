@@ -1,0 +1,298 @@
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* Si blocca lo scroll globale e si va scrollare solo il contenuto interno in modo da non intaccare il logo */
+    overflow: hidden;   
+}
+
+footer{
+    background-color: #350101;  
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    position: relative;
+    z-index: 500;
+}
+
+/* Barra fissa in alto dove sarà presente il logo dell'azienda, la cui altezza si adatta al contenuto */
+#barra-titolo{
+    height: fit-content;    
+    top: 0;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); 
+}
+
+/* Barra con i tasti di navigazione dentro il sito e caratteristiche di tutte le tendine che appariranno sotto al menu hamburger */
+#barra-navigazione, #tendina1, #tendina2, #tendina3, #tendina4, #tendina5{
+    height: 40px;
+    background-color: #8B0000;
+}
+
+/* caratteristiche di ciascuna delle barre che cambia la posizione di partenza e della barra inziale */
+#barra-navigazione{ top: 90px; }
+
+#tendina1{ top: 130px; }
+
+#tendina2{ top: 170px; }
+
+#tendina3{ top: 210px; }
+
+#tendina4{ top: 250px; }
+
+#tendina5{ top: 290px; }
+
+/* Caratteristiche per avere un effetto di scorrimento dall'alto verso il basso degli elementi del menu a tendina*/
+#tendina1, #tendina2, #tendina3, #tendina4, #tendina5{
+    opacity: 0;
+    transform: translateY(-30px); 
+    transition: 
+        opacity 0.4s ease, 
+        transform 0.4s ease;
+}
+
+/* Caratteristiche che terminano l'effetto dello scorrimento */
+#tendina1.visible, #tendina2.visible, #tendina3.visible, #tendina4.visible, #tendina5.visible{
+    opacity: 1;
+    transform: translateY(0); 
+}
+
+/* Attributi comuni tra le due barre fisse*/
+#barra-titolo, #barra-navigazione, #tendina1, #tendina2, #tendina3, #tendina4, #tendina5{
+    position: fixed;   /* Barre posizionate fisse */
+    width: 100%;   
+    z-index: 1000;   /* La barra in alto deve sempre rimanere fissa sopra gli altri contenuti (1000 valore alto di riferimento) */
+    /* Si centrano i contenuti */
+    display: flex;            
+    justify-content: center;  
+    align-items: center;    
+}
+
+/* Caratteristiche del menu hamburger per avere tutti gli effetti puliti, mentre il menu a tendina si chiude */
+#tendina{
+    background-color: #8B0000;
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;   /* Per far apparire un cursore quando si passa sopra l'immagine */
+    position: relative;
+    z-index: 1100;     
+}
+
+/* Logo dell'azienda grande */
+#logo{
+    height: 90px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;   
+}
+
+/* Logo dimensioni ridotte per display ridotti */
+#logo_ridotto{
+    height: 90px;
+    border-radius: 10px;
+}
+
+/* Stato iniziale del logo e del contenuto che cambiano appena si carica la pagina con un effetto di sfumatura.
+   All'inzio saranno completamente trasparenti, opacità a 0, e man mano che entrano aumentano la loro visibilità.
+   La transizione per l'opacità inizia lentamente e accellera verso la fine; il tutto i 0.3 secondi*/
+#logo, #logo_ridotto{
+    opacity: 0;
+    transition:
+        opacity 0.3s ease-in;
+}
+
+/* Effetto finale per la sfumatura, in cui logo e contenuto non sono più trasparenti */
+#logo.visible, #logo_ridotto.visible{ opacity: 1; }
+
+/* Caratteristiche tasti della barra di navigazione sia i bottoni non selezionati sia il bottone selezioanto */
+#bottoneSelezione, #selezionato{
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style:italic;
+    margin: 60px;
+    color: whitesmoke;
+    background-color: #8B0000;
+    border:#8B0000;
+    border-radius: 20px;
+    border: none;
+    /* Sul passaggio del mouse sopra uno dei bottoni della barra di navigazione, si applica un effetto transitorio più soft */
+    transition: 
+        box-shadow 0.2s ease-in-out,   
+        transform 0.2s ease-in-out;
+}
+
+/* Effetto  di ingrandimento delle scritte al passaggio del mouse sopra uno dei bottoni della barra di navigazione */
+#bottoneSelezione:hover, #selezionato:hover, #invia:hover{ transform: scale(1.10); }
+
+/* Effetto sul bottone selezionato nella barra */
+#selezionato{ box-shadow: 0 0 10px 2px rgba(216, 219, 52, 0.80);  }
+
+/* Spazio per evitare che il contenuto venga nascosto sotto la barra */
+#contenuto{
+    position: absolute;
+    /* Contenuto posizionato subito dopo le sbarre fisse (250px) con larghezza (SX, DX) e altezza massime */
+    top: 130px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color:white;
+    overflow-y: auto;   /* Scroll solo del contenuto interno */
+    scroll-margin-top: 250px;   /* Quando si scrolla alla sezione in questione, si evitano le due barre soprastanti */
+    /* Caratteristiche per avere un effetto di scorrimento dall'alto verso il basso partendo da 30px in alto*/
+    opacity: 0;
+    transform: translateY(-30px); 
+    transition: 
+        opacity 0.4s ease, 
+        transform 0.4s ease;
+}
+
+/* Caratteristiche che terminano l'effetto dello scorrimento e si scende a 0, mentre l'opacità aumenta */
+#contenuto.visible{
+    opacity: 1;
+    transform: translateY(0); 
+}
+
+#contenitorePrincipale, #contenitorePrincipale2, #contenitorePrincipale3{
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+}
+
+/* Immagine occupa metà schermo */
+#immaginePrincipale, #immaginePrincipale2, #immaginePrincipale3, #mappa{
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+#immaginePrincipale{ width: 60%; }
+
+#immaginePrincipale2{ width: 40%; }
+
+#immaginePrincipale3{ 
+    width: 50%; 
+    border:#8B0000 solid 30px;
+}
+
+#mappa{ width: 70%; }
+
+/* Testo occupa l’altra metà */
+#contenitoreTesto, #contenitoreTesto2, #contenitoreTesto3, #contenitoreTesto4{
+    padding:2rem;   /* Si mette un padding quasi 2 volte superiore all'elemento radice (HTML) */
+    color: black;
+    font-size: 25px;
+    font-style: italic;
+}
+
+#formContattaci{
+    padding:1rem;   
+    color: white;
+    background-color: black;
+    font-size: 25px;
+    font-style: italic;
+    text-align: center;
+    width: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+#testoSlide{ 
+    color: white;
+    font-style: italic;
+}
+
+#testoSlide{ font-size: 3em; }
+
+#contenitoreTesto{ width: 40%; }
+
+#contenitoreTesto2{ width: 60%; }
+
+#contenitoreTesto3{ 
+    color: white;
+    background-color: #8B0000;
+    width: 50%; }
+
+#contenitoreTesto4{
+    background-color: darkgoldenrod; 
+    width: 30%; 
+}
+
+a{ color:white; }
+
+#slideShow{ 
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 0px;
+    text-align: center;
+    background-color: black;
+    color: #8B0000;
+}
+
+#form{
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 8px;
+    text-align: center;
+}
+
+input, #messaggio{
+    text-align: center;
+    width: 90%;
+    border-radius: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+#invia{
+    color: white;
+    margin-top: 0px;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+    background-color: #8B0000;
+    width: 82%;
+    /* Sul passaggio del mouse sopra il tasto di invio richiesta, si applica un effetto transitorio soft insieme al successivo */
+    transition: 
+        box-shadow 0.2s ease-in-out,   
+        transform 0.2s ease-in-out;
+}
+
+#invia:hover{ transform: scale(1.10); }
+
+/* Si usa una media-query per far in modo di impilare gli oggetti del contenitore principale nel caso si riducano le dimensioni dello schermo */
+@media (max-width: 1125px){
+    #contenitorePrincipale, #contenitorePrincipale2, #contenitorePrincipale3{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0px;
+    }
+
+    #contenitorePrincipale3{ min-height: 150%; }
+    
+    #immaginePrincipale,  #immaginePrincipale2, #immaginePrincipale3, #contenitoreTesto, #contenitoreTesto2, #contenitoreTesto3, #slide-a, #slide-b, #slide-c, #slide-d, #formContattaci{
+        width: 100%;
+        height: 50%;
+        box-sizing: border-box;
+    }
+
+    #immaginePrincipale3{ border: none; }
+
+    h1{ font-size: 50px; }
+
+    #contenitoreTesto, #contenitoreTesto2, #contenitoreTesto3{ 
+        padding: 10px;
+        font-size: 20px; 
+    }
+
+    #mappa{
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+        display: flex;
+    }
+
+    #formContattaci{ flex: 1; }
+}
