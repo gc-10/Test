@@ -238,7 +238,6 @@ a{ color:white; }
 
     #mappa{
         width: 100%;
-        height: 500px;
         box-sizing: border-box;
         flex: 1;
         display: flex;
