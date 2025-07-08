@@ -242,6 +242,7 @@ a{ color:white; }
 
     /* Per espandere la mappa lungo tutta l'altezza del display */
     #mappa{
+        min-height: 200px;
         flex: 1;
         display: flex;
     }
