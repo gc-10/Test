@@ -2,6 +2,12 @@
    Se mi trovo in una pagina diversa dalla radice, allora il prefisso sarà dato dal basePath, altrimenti se sono sulla radice dal "" */
 const base=window.basePath || "";   
 
+/* Verifica se è una nuova sessione del browser, cioè se sessionStorage è false, e nel caso lo fosse si toglie la variabile selezione.
+   Questo, per non avere la stessa icona cliccata nel menu di selezione alla riapertura del browser o di un tab */
+if(!sessionStorage.getItem("sessione_attiva")) {
+    localStorage.removeItem("selezione"); 
+    sessionStorage.setItem("sessione_attiva", "true"); // Flag di sessione attiva
+}
 /* Si  mette una variabile globale, salvata in locale in modo che si aggiorni senza reinizializzarsi, che rappresenta il bottone selezionato; per default è il primo,
    La localStorage serve a salvare dati in modo persistente nel browser, anche dopo che la pagina viene chiusa o ricaricata */
 let selezione=Number(localStorage.getItem("selezione")) || 1;
