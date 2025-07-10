@@ -2,15 +2,13 @@
    Se mi trovo in una pagina diversa dalla radice, allora il prefisso sarà dato dal basePath, altrimenti se sono sulla radice dal "" */
 const base=window.basePath || "";   
 
-/* Verifica se è una nuova sessione del browser, cioè se sessionStorage è false, e nel caso lo fosse si toglie la variabile selezione.
+/* Si  mette una variabile di sessione, in modo che si aggiorni via via che si fa una selezione tra i bottoni del menu.
+   Per defaul è imposta sul primo elemento */
+let selezione=Number(sessionStorage.getItem("selezione")) || 1;
+
+/* Verifica se è una nuova sessione del browser, cioè se sessionStorage è false, e nel caso lo fosse si inizializza.
    Questo, per non avere la stessa icona cliccata nel menu di selezione alla riapertura del browser o di un tab */
-if(!sessionStorage.getItem("sessione_attiva")) {
-    localStorage.removeItem("selezione"); 
-    sessionStorage.setItem("sessione_attiva", "true"); // Flag di sessione attiva
-}
-/* Si  mette una variabile globale, salvata in locale in modo che si aggiorni senza reinizializzarsi, che rappresenta il bottone selezionato; per default è il primo,
-   La localStorage serve a salvare dati in modo persistente nel browser, anche dopo che la pagina viene chiusa o ricaricata */
-let selezione=Number(localStorage.getItem("selezione")) || 1;
+if(!sessionStorage.getItem("inizializzato")){ sessionStorage.setItem("inizializzato", "true"); }
 
 // Stato del menu a tendina, inizialmente chiuso
 let menuAperto=false;
@@ -38,7 +36,7 @@ function aggiornaImmagineBarra() {
         creaBarraOriginale(barraNavigazione); 
     }
     immagine.addEventListener("click", ()=>{ 
-        localStorage.setItem("selezione", 1);   // Se si clicca sull'immagine è come se si cliccasse sulla pagina principale, quindi sul primo bottone
+        sessionStorage.setItem("selezione", 1);   // Se si clicca sull'immagine è come se si cliccasse sulla pagina principale, quindi sul primo bottone
         window.location.href=base+"index.html"; 
     });
     barra.appendChild(immagine);
@@ -175,20 +173,20 @@ function chiudiTendina(){
 
 // In base al click di uno dei bottoni sulla barra di navigazione verremo reindirizzati alla pagina specifica
 function reindirizzamentoEsteso(bottoneNAV1, bottoneNAV2, bottoneNAV3, bottoneNAV4){
-    // In base al bottone cliccato, oltre al reindirizzamneto, si inserisce nella variabile di salvataggio locale il valore di ordinamento relativo al bottone cliccato
+    // In base al bottone cliccato, oltre al reindirizzamneto, si inserisce nella variabile di sessione il valore di ordinamento relativo al bottone cliccato
     bottoneNAV1.addEventListener("click", ()=>{
-        localStorage.setItem("selezione", 1);
+        sessionStorage.setItem("selezione", 1);
         window.location.href=base+"index.html"; 
     });
     bottoneNAV2.addEventListener("click", ()=>{
-        localStorage.setItem("selezione", 2);
+        sessionStorage.setItem("selezione", 2);
         window.location.href=base+"pages/cosa-facciamo.html"; });
     bottoneNAV3.addEventListener("click", ()=>{
-        localStorage.setItem("selezione", 3);
+        sessionStorage.setItem("selezione", 3);
         window.location.href=base+"pages/dove-trovarci.html"; 
     });
     bottoneNAV4.addEventListener("click", ()=>{ 
-        localStorage.setItem("selezione", 4);
+        sessionStorage.setItem("selezione", 4);
         window.location.href=base+"pages/contattaci.html"; 
     });
 } 
