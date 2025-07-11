@@ -256,6 +256,7 @@ input, #messaggio{
     border-radius: 10px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
+    border-radius: 80px;
 }
 
 input{ height: 30px; }
@@ -263,20 +264,24 @@ input{ height: 30px; }
 #invia{
     margin-top: -10px;
     color: white;
-    height: 30px;
+    height: 40px;
     font-size: 20px;
     font-style: italic;
     font-weight: bold;
     background-color: #8B0000;
     border: 1px solid #8B0000;
-    width: 50%;
+    border-radius: 80px;
+    width: 60%;
     /* Sul passaggio del mouse sopra il tasto di invio richiesta, si applica un effetto transitorio soft insieme al successivo */
     transition: transform 0.2s ease-in-out;
 }
 
 #invia:hover{ transform: scale(1.10); }
 
-#disclaimer{ font-size: 15px; }
+#disclaimer{ 
+    margin-top: 5px;
+    font-size: 15px; 
+}
 
 /* Si usa una media-query per far in modo di impilare gli oggetti del contenitore principale nel caso si riducano le dimensioni dello schermo */
 @media (max-width: 1125px){
