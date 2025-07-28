@@ -321,12 +321,12 @@ input{ height: 30px; }
         width:100%;
         flex: 1; 
         box-sizing: border-box;
+        margin-top: -10px;
     }
 
     #formContattaci{
         height: auto !important;
         width: 100%;
-        margin-top: 0;
         flex-grow: 1;
         padding: 1rem;
     }
