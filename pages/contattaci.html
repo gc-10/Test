@@ -14,31 +14,31 @@
     <div id="contenuto">
         <div id="contenitorePrincipale">
             <div id="formContattaci">
-                <p><strong>Mettiti in contatto con noi, vi risponderemo il prima possibile</strong></p>
-                <form id="form" action="mailto:matteoluncio@gmail.com" method="post" enctype="text/plain">
+                <p><strong>Scrivici pure, risponderemo il prima possibile</strong></p><br>
+                <form id="form" action="mailto:matteoluncio@gmail.com" method="post" enctype="text/plain"><br>
                     <input type="text" id="nome" name="nome"
                            pattern="^[A-Za-z\s]+$"
                            title="Solo lettere con eventuali spazi, di cui la prima lettera è maiuscola"
-                           placeholder="Nome"
+                           placeholder="Il tuo nome"
                            required><br><br>
                     <input type="text" id="cognome" name="cognome"
                            pattern="^[A-Za-z\s]+$"
                            title="Solo lettere con eventuali spazi, di cui la prima lettera è maiuscola"
-                           placeholder="Cognome"
+                           placeholder="Il tuo cognome"
                            required><br><br>
                     <!-- Si impone la prima cifra 0 per i numeri fissi e 3 per i numeri telefonici -->
                     <input type="tel" id="telefono" name="telefono"
                            pattern="^[03][0-9]{9}$"
                            title="10 cifre, di cui la prima deve essere 3 o 0"   
-                           placeholder="Numero di telefono"
+                           placeholder="Il tuo numero telefonico"
                            required><br><br>
                     <input type="email" id="email" name="email"
                            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                            title="Inserisci un'email valida con tutte lettere minuscole. Es: nome@dominio.it"
-                           placeholder="Email"
+                           placeholder="La tua email"
                            required><br><br>
-                    <textarea id="messaggio" name="messaggio" rows="2" placeholder="Richiedi informazioni" required></textarea><br><br>
-                    <input type="submit" value="Invia richiesta" id="invia">
+                    <textarea id="messaggio" name="messaggio" rows="2" placeholder="Descrivi la tua richiesta" required></textarea><br><br>
+                    <input type="submit" value="Invia" id="invia"><br><br>
                   </form>
                   <p id="disclaimer">Compilando il form ed inviando i tuoi dati dichiari implicitamente di aver preso visione e di accettare le condizioni generali presenti all’interno delle <a href="../pages/cookie-policy.html">Cookie Policy</a> e delle <a href="../pages/privacy-policy.html">Privacy Policy</a></p>
             </div>
