@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Serve controllare come la pagina web viene visualizzata su dispositivi mobili e schermi di diverse dimensioni -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tenuta Tigliano</title>
+    <link rel="icon" href="img/icona.ico">   <!-- Icona che rappresenta il logo posta nel tab del browser -->
+    <link rel="stylesheet" href="css/style.css">   <!-- Link al CSS -->
+</head>
+<body>
+    <div id="barra-titolo"></div>
+    <div id="barra-navigazione"></div>
+    <div id="contenuto">
+        <div id="contenitorePrincipale">
+            <img src="img/immagine_tenuta.png" id="immaginePrincipale" alt="immagine tenuta">
+            <div id="contenitoreTesto">
+                <p>
+                    Benvenuti a <strong>Tenuta Tigliano</strong>, la vostra destinazione per vendita e degustazione di vini a Peccioli nella provincia di Pisa. 
+                    <br><br>Il nostro vino nasce dalle migliori vigne, coltivate con passione e rispetto per la natura. 
+                    <br><br>Ogni bottiglia è il frutto di un’attenta selezione dell'uva e di un processo di vinificazione che fonde tradizione e innovazione. 
+                    <br><br>Presso la nostra tenuta è possibile <strong>acquistare</strong> non solo i nostri vini, ma anche olio extravergine di oliva e una selezione di <strong>prodotti a km 0</strong>.
+                    <br><br>Organizziamo visite nelle nostre cantine con degustazione; potete scriverci e prenotare utilizzando la sezione "Contattaci"
+                </p>
+            </div>
+        </div>
+        <div id="contenitorePrincipale2">
+            <div id="slideShow">
+                <h1 id="testoSlide">Immagini dalla nostra cantina</h1>
+                <div id="contenitoreSlide">
+                    <img id="slide-a" src="img/slide1.jpg" alt="Immagine 1">
+                    <img id="slide-b" src="img/slide2.jpg" alt="Immagine 2">
+                    <img id="slide-c" src="img/slide3.jpg" alt="Immagine 3">
+                    <img id="slide-d" src="img/slide4.jpg" alt="Immagine 4">
+                </div>
+            </div>
+        </div>
+        <footer>
+            2025 © AZIENDA AGRICOLA PARADISO SOCIETÁ SEMPLICE AGRICOLA 
+            <br> Partita IVA: 07068870489 
+            <br><a href="pages/cookie-policy.html">Cookie Policy</a>&nbsp;&nbsp;&nbsp;<a href="pages/privacy-policy.html">Privacy Policy</a>
+            <!-- Si imposta il font-size per non avere caratteri indesiderati che escono automaticamente tra i due loghi -->
+            <div style="font-size: 0px; margin-top: 10px;">
+                <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                    <img style="border:0;width:88px;height:31px"
+                        src="https://jigsaw.w3.org/css-validator/images/vcss"
+                        alt="CSS Valido!">
+                </a>
+                <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                    <img style="border:0;width:88px;height:31px"
+                        src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+                        alt="CSS Valido!">
+                </a>
+            </div>
+        </footer>
+    </div>
+    <!-- Per avere una base di partenza per linkarmi a cartelle e sottocartelle tramite i vari path, evitando percorsi assoluti -->
+    <script>
+        window.basePath="";
+    </script>
+    <!-- Si richiama lo script che agisce sul body della pagina -->
+    <script src="js/script.js"></script>
+</body>
+</html>
