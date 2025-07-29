@@ -18,6 +18,7 @@ let menuAperto=false;
 function aggiornaImmagineBarra() {
     const barra=document.getElementById("barra-titolo");
     const barraNavigazione=document.getElementById("barra-navigazione");
+    barraNavigazione.classList.add("visible"); 
     // Ripuliamo eventuali contenuti precedenti
     barra.innerHTML="";
     barraNavigazione.innerHTML=""; 
@@ -40,7 +41,7 @@ function aggiornaImmagineBarra() {
         window.location.href=base+"index.html"; 
     });
     barra.appendChild(immagine);
-    // Creazione di una classe CSS per avere un effetto di transizione sull'immagine del logo e sul contenuto della pagina
+    // Creazione di una classe CSS per avere un effetto di transizione sul contenuto della pagina
     setTimeout(()=>{ 
         contenuto.classList.add("visible");
         immagine.classList.add("visible"); 
