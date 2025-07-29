@@ -30,8 +30,20 @@ footer{
     background-color: #8B0000;
 }
 
-/* caratteristiche di ciascuna delle barre che cambia la posizione di partenza e della barra inziale */
-#barra-navigazione{ top: 90px; }
+/* caratteristiche di ciascuna delle barre che cambia la posizione di partenza e della barra inziale con un effetto transitorio grazie anche alla classe sottostante */
+#barra-navigazione{ 
+    opacity: 0;
+    transform: translateY(-30px);
+    transition:
+        opacity 0.4s ease,
+        transform 0.8s ease;
+    top: 90px;
+}
+
+#barra-navigazione.visible{ 
+    transform: translateY(0);
+    opacity: 1; 
+}
 
 #tendina1{ top: 130px; }
 
@@ -99,12 +111,17 @@ footer{
    La transizione per l'opacità inizia lentamente e accellera verso la fine; il tutto i 0.3 secondi*/
 #logo, #logo_ridotto{
     opacity: 0;
-    transition:
-        opacity 0.3s ease-in;
+    transform: translateY(-30px); 
+    transition: 
+        opacity 0.4s ease, 
+        transform 0.4s ease;
 }
 
 /* Effetto finale per la sfumatura, in cui logo e contenuto non sono più trasparenti */
-#logo.visible, #logo_ridotto.visible{ opacity: 1; }
+#logo.visible, #logo_ridotto.visible{ 
+    transform: translateY(0); 
+    opacity: 1; 
+}
 
 /* Caratteristiche tasti della barra di navigazione sia i bottoni non selezionati sia il bottone selezioanto */
 #bottoneSelezione, #selezionato{
@@ -146,7 +163,7 @@ footer{
     transform: translateY(-30px); 
     transition: 
         opacity 0.4s ease, 
-        transform 0.4s ease;
+        transform 1.2s ease;
 }
 
 /* Caratteristiche che terminano l'effetto dello scorrimento e si scende a 0, mentre l'opacità aumenta */
