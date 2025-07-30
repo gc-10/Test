@@ -7,6 +7,7 @@ html, body{
 }
 
 footer{
+    font-family: 'Times New Roman', Times, serif;
     background-color: #350101;  
     color: white;
     text-align: center;
@@ -301,6 +302,82 @@ input{ height: 30px; }
     font-size: 15px; 
 }
 
+/* Modal base */
+#consent-modal.consent-hidden{ display: none; }
+
+/* Box centrale */
+.consent-box{
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  max-width: 400px; 
+  width: 80%; 
+  padding: 10px;
+  background: rgb(43, 43, 43);
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  text-align: center;
+  z-index: 10001;
+  opacity: 0;
+  transform: 
+    translateX(-50%)
+    scale(0.9);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Quando appare */
+.consent-box.appear{
+  opacity: 1;
+  transform: 
+    translate(-50%) 
+    scale(1);
+}
+
+/* Transizione in uscita del banner */
+.consent-box.disappear {
+  opacity: 0;
+  transform: translate(-50%) scale(0.9);
+}
+
+/* Titolo e testo */
+.consent-box h2{ margin-top: 0; }
+
+.consent-box p{ 
+    color: white; 
+    font-size: 0.9rem; 
+}
+
+.consent-box p a{ 
+    color: white; 
+    text-decoration: none; 
+}
+
+.consent-box p a:hover{ text-decoration: underline; }
+
+/* Pulsanti */
+.consent-actions{
+  margin-top: 1em;
+  display: flex; justify-content: space-around;
+}
+
+.consent-actions button{
+  padding: 8px 16px;
+  border: none; border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+#consent-accept{ 
+    background: darkolivegreen; 
+    color: #fff; 
+}
+
+#consent-decline{ 
+    background: darkred; 
+    color: #fff; 
+}
+
 /* Si usa una media-query per far in modo di impilare gli oggetti del contenitore principale nel caso si riducano le dimensioni dello schermo */
 @media (max-width: 1125px){
     #contenitorePrincipale, #contenitorePrincipale2, #contenitorePrincipale3{
@@ -313,7 +390,7 @@ input{ height: 30px; }
 
     #contenitorePrincipale3{ min-height: 150%; }
     
-    #immaginePrincipale,  #immaginePrincipale2, #immaginePrincipale3, #contenitoreTesto, #contenitoreTesto2, #contenitoreTesto3, #slide-a, #slide-b, #slide-c, #slide-d, #formContattaci{
+    #immaginePrincipale, #immaginePrincipale2, #immaginePrincipale3, #contenitoreTesto, #contenitoreTesto2, #contenitoreTesto3, #slide-a, #slide-b, #slide-c, #slide-d, #formContattaci{
         width: 100%;
         height: 50%;
         box-sizing: border-box;

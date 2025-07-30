@@ -191,6 +191,76 @@ function reindirizzamentoEsteso(bottoneNAV1, bottoneNAV2, bottoneNAV3, bottoneNA
         window.location.href=base+"pages/contattaci.html"; 
     });
 } 
+
+// ----- INIZIO: Gestione consenso cookie e privacy popup -----
+(function() {
+    // Crea il modal se non esiste
+    const modalHtml=`
+        <div id="consent-modal" class="consent-hidden">
+        <div class="consent-backdrop"></div>
+        <div class="consent-box">
+            <h2>Uso dei Cookie & Privacy</h2>
+            <p>
+                Per fornire le migliori esperienze, utilizziamo tecnologie come i cookie per memorizzare e/o accedere alle informazioni del dispositivo. Il consenso a queste tecnologie ci permetterà di elaborare dati come il comportamento di navigazione o ID unici su questo sito. Non acconsentire o ritirare il consenso può influire negativamente su alcune caratteristiche e funzioni.
+            </p>
+            <p >
+            <a href="${base}pages/cookie-policy.html" target="_blank" style="text-decoration: underline;">Cookie Policy</a>&nbsp;&nbsp;&nbsp;
+            <a href="${base}pages/privacy-policy.html" target="_blank" style="text-decoration: underline;">Privacy Policy</a>
+            </p>
+            <div class="consent-actions">
+            <button id="consent-accept">Accetta</button>
+            <button id="consent-decline">Rifiuta</button>
+            </div>
+        </div>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalHtml);
+
+    const modal=document.getElementById('consent-modal');
+    const btnAccept=document.getElementById('consent-accept');
+    const btnDecline=document.getElementById('consent-decline');
+    const box = modal.querySelector('.consent-box'); 
+
+    // Mostra il modal se non esiste consenso salvato
+    if(!localStorage.getItem('cookies-consent')){ modal.classList.remove('consent-hidden'); }
+
+    // Gestione pulsanti
+    btnAccept.addEventListener('click', ()=>{
+        localStorage.setItem('cookies-consent', 'accepted');
+        // Aggiunge la transizione in uscita
+        box.classList.remove('appear');
+        box.classList.add('disappear');
+
+        // Dopo la transizione, nasconde il modal
+        setTimeout(() => {
+            modal.classList.add('consent-hidden');
+            box.classList.remove('disappear'); // Pulizia
+        }, 500);
+    });
+
+    btnDecline.addEventListener('click', ()=>{
+        localStorage.setItem('cookies-consent', 'declined');
+        box.classList.remove('appear');
+        box.classList.add('disappear');
+
+        setTimeout(() => {
+            modal.classList.add('consent-hidden');
+            box.classList.remove('disappear');
+        }, 500);
+    });
+
+    document.addEventListener("DOMContentLoaded", ()=>{
+        const modal=document.getElementById('consent-modal');
+        const banner=document.querySelector('.consent-box');
+        if(!localStorage.getItem('cookies-consent')){
+            modal.classList.remove('consent-hidden'); // Mostra il backdrop
+            setTimeout( ()=>{
+            banner.classList.add('appear'); // Attiva l'effetto zoom/fade
+            }, 10); // Ritardo per triggerare la transizione
+        }
+    });
+})();
+// ----- FINE: Gestione consenso cookie e privacy popup -----
   
 // Il logo e tutto ciò che segue (barra sotto) vengono aggiornati al ridimensionamento della finestra
 window.addEventListener('resize', aggiornaImmagineBarra);
