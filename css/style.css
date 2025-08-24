@@ -6,23 +6,6 @@ html, body{
     overflow: hidden;   
 }
 
-/* Effetto di comparsa del body del manuale */
-#body-manuale{
-    font-size: 18px; 
-    font-style: italic; 
-    padding: 20px;
-    opacity: 0;
-    transform: translateY(-30px);
-    transition:
-        opacity 0.4s ease,
-        transform 0.8s ease;
-}
-
-#body-manuale.loaded{
-    transform: translateY(0);
-    opacity: 1;
-}
-
 footer{
     font-family: 'Times New Roman', Times, serif;
     background-color: #350101;  
