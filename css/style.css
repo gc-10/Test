@@ -281,12 +281,12 @@ input, #messaggio{
 input{ height: 30px; }
 
 #invia{
+    font-family: 'Times New Roman', Times, serif;
     margin-top: -10px;
     color: white;
     height: 40px;
     font-size: 20px;
     font-style: italic;
-    font-weight: bold;
     background-color: #8B0000;
     border: 1px solid #8B0000;
     border-radius: 80px;
