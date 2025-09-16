@@ -15,15 +15,13 @@
         <div id="contenitorePrincipale">
             <div id="formContattaci">
                 <p><strong>Scrivici pure, risponderemo il prima possibile.</strong></p><br>
+                <!-- Utilizzo del servizio mail di formsubmit -->
                 <form id="form" action="https://formsubmit.co/gjergjcoli@outlook.com" method="post">
+                    <!-- Disattivazione Recaptcha -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <!-- Oggetto personalizzato -->
+                    <input type="hidden" name="_subject" value="Nuovo messaggio dalla pagina di Tenuta Tigliano">
 
-                        <input type="hidden" name="_captcha" value="false">
-
-                      <!-- 2. Oggetto personalizzato -->
-                      <input type="hidden" name="_subject" value="Nuovo messaggio Tenuta Tigliano">
-                      
-                    <!-- 3. Redirect dopo invio (opzionale) -->
-                    <input type="hidden" name="_next" value="https://gc-10.github.io/Test/pages/contattaci.html">
                       
                     <!-- 4. Honey-pot per evitare spam -->
                     <input type="text" name="_honey" style="display:none">
@@ -116,8 +114,6 @@
     </script>
     <!-- Si richiama lo script che agisce sul body della pagina -->
     <script src="../js/script.js" data-base="../"></script>
+    <script src="../js/notifica.js"></script>
 </body>
 </html>
-
-
-
