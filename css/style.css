@@ -135,6 +135,7 @@ footer{
     border:#8B0000;
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    cursor: pointer;
     border: none;
     /* Sul passaggio del mouse sopra uno dei bottoni della barra di navigazione, si applica un effetto transitorio più soft */
     transition: 
@@ -260,9 +261,9 @@ a{ color:white; }
 }
 
 #form{
-    margin-top: -22px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin-top: -45px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
     border-top: 1px solid white;
     border-bottom: 1px solid white;
     text-align: center;
@@ -291,6 +292,7 @@ input{ height: 30px; }
     border: 1px solid #8B0000;
     border-radius: 80px;
     width: 60%;
+    cursor: pointer;
     /* Sul passaggio del mouse sopra il tasto di invio richiesta, si applica un effetto transitorio soft insieme al successivo */
     transition: transform 0.2s ease-in-out;
 }
