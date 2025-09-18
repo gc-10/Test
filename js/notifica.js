@@ -22,11 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 const originalText = headerText.textContent;
 
                 // Sostituisco il testo con il messaggio di conferma
-                headerText.textContent = "Messaggio inviato correttamente";
+                headerText.textContent = "Messaggio inviato correttamente!";
 
                 // Stile CSS per rendere il messaggio più evidente
-                headerText.style.backgroundColor = "#285c29ff";
-                headerText.style.color = "white";
+                headerText.style.backgroundColor = "#000000ff";
+                headerText.style.color = "green";
+                headerText.style.marginTop = "20px";
                 headerText.style.padding = "5px 15px";
                 headerText.style.borderRadius = "25px";
                 headerText.style.fontWeight = "bold";
