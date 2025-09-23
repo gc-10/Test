@@ -309,23 +309,25 @@ input{ height: 30px; }
 
 /* Box centrale */
 .consent-box{
-  position: fixed;
-  bottom: 10px;
-  left: 50%;
-  max-width: 400px; 
-  width: 80%; 
-  padding: 10px;
-  background: rgb(43, 43, 43);
-  color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-  text-align: center;
-  z-index: 10001;
-  opacity: 0;
-  transform: 
-    translateX(-50%)
-    scale(0.9);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+    font-family: 'Times New Roman', Times, serif;
+    font-style:italic;
+    font-size: 20px;
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+    max-width: auto; 
+    padding: 15px;
+    background: rgb(0, 0, 0);
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    text-align: center;
+    z-index: 10001;
+    opacity: 0;
+    transform: 
+        translateX(-50%)
+        scale(0.9);
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 /* Quando appare */
