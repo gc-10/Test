@@ -29,7 +29,7 @@ function aggiornaImmagineBarra() {
         immagine.id="logo_ridotto";
         immagine.src=base+"img/Immagine_ridotta.png";   // Da notare il percorso come cambia a proposito del prefisso dato
         // Ripuliamo eventuali contenuti precedenti
-        creaBarraRidotta(barraNavigazione);
+        creaBarraRidotta(barraNavigazione, barra);
     } 
     else{ 
         immagine.id="logo";
@@ -80,13 +80,16 @@ function creaBarraOriginale(barraNavigazione){
 }
 
 // Funzione che crea la barra di navigazione con gli eventi associati, al momento di creazione della pagina, per display di piccole dimensioni
-function creaBarraRidotta(barraNavigazioneRidotta){
+function creaBarraRidotta(barraNavigazioneRidotta, barra){
+    const barra_titolo=document.getElementById("barra-titolo");
+    barra_titolo.style.height="120px";
+    barra_titolo.style.zIndex="2000";
     // Si fa un menu a tendina, sotto al quale appariranno i tasti associati di navigazione
     const menuTendina=document.createElement("button");
     menuTendina.type="button";   // Forzatura a bottone per tenerlo fermo in caso di refresh
     menuTendina.id="tendina";
     menuTendina.innerHTML="&#9776;";
-    barraNavigazioneRidotta.appendChild(menuTendina);
+    barra.appendChild(menuTendina);
 
     // Si creano 4 variabili per creare 4 div che conterranno i 4 bottoni
     let div1, div2, div3, div4
