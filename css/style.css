@@ -82,15 +82,27 @@ footer{
     align-items: center;    
 }
 
-/* Caratteristiche del menu hamburger per avere tutti gli effetti puliti, mentre il menu a tendina si chiude */
 #tendina{
-    background-color: #8B0000;
-    color: white;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;   /* Per far apparire un cursore quando si passa sopra l'immagine */
-    position: relative;
-    z-index: 1100;     
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 1100;
+    cursor: pointer;
+
+    background: rgba(255,255,255,0.55);
+    color: #8B0000;
+    font-size: 30px;
+
+    padding: 39px 8px 39px 12px;
+    border: 1.5px solid rgba(255,255,255,0.6);
+    backdrop-filter: blur(10px);
+
+
+    transition: transform 0.2s ease;
+}
+
+#tendina:active{
+    transform: scale(0.92);
 }
 
 /* Logo dell'azienda grande */
@@ -430,6 +442,6 @@ input{ height: 30px; }
 
     #contattiInfo{ font-size: 20px; }
 
-        /* Box centrale */
+    /* Box centrale */
     .consent-box{ width: 90%; }
 }
