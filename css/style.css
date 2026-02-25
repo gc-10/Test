@@ -1,4 +1,21 @@
-html, body{
+@font-face {
+  font-family: 'Trajan Pro';
+  src: url('../fonts/TrajanPro-Regular.woff2') format('woff2'),
+       url('../fonts/TrajanPro-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html, body {
+  font-family: 'Trajan Pro', serif;
+}
+
+input, button, textarea, select {
+  font-family: inherit;
+}
+
+html, body{ 
     height: 100%;
     margin: 0;
     padding: 0;
@@ -7,7 +24,6 @@ html, body{
 }
 
 footer{
-    font-family: 'Times New Roman', Times, serif;
     background-color: #350101;  
     color: white;
     text-align: center;
@@ -88,16 +104,12 @@ footer{
     right: 0px;
     z-index: 1100;
     cursor: pointer;
-
     background: transparent;
     color: #8B0000;
     font-size: 30px;
-
     padding: 30px 8px 0 8px;
     border: 1.5px solid rgba(255,255,255,0.6);
     backdrop-filter: blur(10px);
-
-
     transition: transform 0.2s ease;
 }
 
@@ -110,7 +122,15 @@ footer{
     height: 90px;
     border-radius: 15px;
     margin-bottom: 10px;
-    cursor: pointer;   
+    cursor: pointer;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    transform-origin: center center;
+    transition: transform 0.28s ease;
+}
+
+/* Hover SOLO quando è visibile */
+#logo.visible:hover{
+    transform: translateY(0) scale(0.985);
 }
 
 /* Logo dimensioni ridotte per display ridotti */
@@ -139,8 +159,6 @@ footer{
 /* Caratteristiche tasti della barra di navigazione sia i bottoni non selezionati sia il bottone selezioanto */
 #bottoneSelezione, #selezionato{
     font-size: 18px;
-    font-family: 'Times New Roman', Times, serif;
-    font-style:italic;
     margin: 60px;
     color: whitesmoke;
     background-color: #8B0000;
@@ -151,12 +169,31 @@ footer{
     border: none;
     /* Sul passaggio del mouse sopra uno dei bottoni della barra di navigazione, si applica un effetto transitorio più soft */
     transition: 
-        box-shadow 0.2s ease-in-out,   
-        transform 0.2s ease-in-out;
+        box-shadow 0.5s ease,   
+        transform 0.5s ease;
 }
 
 /* Effetto  di ingrandimento delle scritte al passaggio del mouse sopra uno dei bottoni della barra di navigazione */
-#bottoneSelezione:hover, #selezionato:hover, #invia:hover{ transform: scale(1.10); }
+#bottoneSelezione:hover, #selezionato:hover{
+  transform: translateY(-2px) scale(1.025);
+  box-shadow: 0 8px 18px rgba(0,0,0,.25);
+}
+
+#bottoneSelezione::after, #selezionato::after{
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%);
+  transition: left .45s ease;
+}
+
+#bottoneSelezione:hover::after, #selezionato:hover::after{
+  left: 120%;
+}
+
+#invia:hover{ transform: scale(1.10); }
 
 /* Effetto sul bottone selezionato nella barra */
 #selezionato{ box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.679);  }
@@ -215,14 +252,12 @@ footer{
     padding:1.5rem;   /* Si mette un padding quasi 2 volte superiore all'elemento radice (HTML) */
     color: black;
     font-size: 24px;
-    font-style: italic;
 }
 
 #formContattaci, #contattaci2{
     margin-top: -20px;
     padding: 1rem;   
     font-size: 24px;
-    font-style: italic;
     text-align: center;
     width: 50%;
     object-fit: cover;
@@ -239,10 +274,7 @@ footer{
     background-color: white; 
 }
 
-#testoSlide{ 
-    color: white;
-    font-style: italic;
-}
+#testoSlide{ color: white; }
 
 #testoSlide{ font-size: 3em; }
 
@@ -286,7 +318,6 @@ input, #messaggio{
     text-align: center;
     width: 90%;
     border-radius: 10px;
-    font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
     border-radius: 80px;
 }
@@ -294,12 +325,10 @@ input, #messaggio{
 input{ height: 30px; }
 
 #invia{
-    font-family: 'Times New Roman', Times, serif;
     margin-top: -10px;
     color: white;
     height: 40px;
     font-size: 20px;
-    font-style: italic;
     background-color: #8B0000;
     border: 1px solid #8B0000;
     border-radius: 80px;
@@ -309,7 +338,44 @@ input{ height: 30px; }
     transition: transform 0.2s ease-in-out;
 }
 
-#invia:hover{ transform: scale(1.10); }
+#invia:hover{ 
+    color: lightyellow;
+    transform: scale(1.01); 
+}
+
+#mail, #numero1, #numero2{ 
+    color: black; 
+    text-decoration: none;
+    transform-origin: left center;
+    transition: transform 1s ease, text-shadow 0.5s ease, color 0.8s ease;
+}
+
+#mail:hover{  
+    text-shadow: 0 0 5px lightcoral;
+    color: darkred; 
+}
+
+#numero1:hover, #numero2:hover{
+    text-shadow: 0 0 2px darkblue;
+    color: darkblue 
+}
+
+#instagram1, #instagram2, #facebook, #whatsapp{ 
+    display: inline-block; /* serve per transform */
+    font-style: italic;
+    color: black; 
+    text-decoration: none;
+    transform-origin: left center;
+    transition: transform 1s ease, color 0.5s ease;
+}
+
+#instagram1:hover, #instagram2:hover, #facebook:hover, #whatsapp:hover{ transform: translateY(-1px) scale(1.06); }
+
+#instagram1:hover, #instagram2:hover{  color: rgb(109, 43, 109); }
+
+#facebook:hover{ color: rgb(28, 10, 77); }
+
+#whatsapp:hover{ color: rgb(16, 77, 10); }
 
 #disclaimer{ 
     margin-top: 5px;
@@ -321,8 +387,6 @@ input{ height: 30px; }
 
 /* Box centrale */
 .consent-box{
-    font-family: 'Times New Roman', Times, serif;
-    font-style:italic;
     font-size: 20px;
     position: fixed;
     bottom: 0px;
