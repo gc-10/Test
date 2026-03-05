@@ -15,24 +15,40 @@
         <div id="contenitorePrincipale">
             <img src="img/immagine_tenuta.png" id="immaginePrincipale" alt="immagine tenuta">
             <div id="contenitoreTesto">
-                <p>
+                <p style="font-style: italic;">
                     Benvenuti a <strong>Tenuta Tigliano</strong>, la vostra destinazione per vendita e degustazione di vini a Peccioli nella provincia di Pisa. 
                     <br><br>Il nostro vino nasce dalle migliori vigne, coltivate con passione e rispetto per la natura. 
                     <br><br>Ogni bottiglia è il frutto di un’attenta selezione dell'uva e di un processo di vinificazione che fonde tradizione e innovazione. 
                     <br><br>Presso la nostra tenuta è possibile <strong>acquistare</strong> non solo i nostri vini, ma anche olio extravergine di oliva e una selezione di <strong>prodotti a km 0</strong>.
-                    <br><br>Organizziamo visite nelle nostre cantine con degustazione; potete scriverci e prenotare utilizzando la sezione "Contattaci".
+                    <br><br>Organizziamo visite nelle nostre cantine con degustazione; potete scriverci e prenotare utilizzando l'apposita sezione di contatto.
                 </p>
             </div>
         </div>
         <div id="contenitorePrincipale2">
             <div id="slideShow">
-                <h1 id="testoSlide" style="font-style:italic;">Immagini dalla nostra cantina</h1>
+                <h1 id="testoSlide" style="font-style:initial;">Immagini dalla nostra cantina</h1>
                 <div id="contenitoreSlide">
-                    <img id="slide-a" src="img/slide1.jpg" alt="Immagine 1">
-                    <img id="slide-b" src="img/slide2.jpg" alt="Immagine 2">
-                    <img id="slide-c" src="img/slide3.jpg" alt="Immagine 3">
-                    <img id="slide-d" src="img/slide4.jpg" alt="Immagine 4">
+                    <button id="prev">‹</button>
+                    <img id="slide" src="img/slide1.jpg" alt="Slide">
+                    <button id="next">›</button>
                 </div>
+                <script>
+                    const imgs = ["img/slide1.jpg","img/slide2.jpg","img/slide3.jpg","img/slide4.jpg"];
+                    let i = 0;
+                    const slide = document.getElementById("slide");
+
+                    function changeTo(newIndex){
+                        i = (newIndex + imgs.length) % imgs.length;
+                        slide.classList.add("fade-out");
+                        setTimeout(() => {
+                        slide.src = imgs[i];
+                        slide.onload = () => slide.classList.remove("fade-out");
+                        }, 180);
+                    }
+
+                    document.getElementById("prev").onclick = () => changeTo(i - 1);
+                    document.getElementById("next").onclick = () => changeTo(i + 1);
+                </script>
             </div>
         </div>
         <footer>
