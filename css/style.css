@@ -229,6 +229,11 @@ footer{
     min-height: 100%;
 }
 
+#contenitorePrincipale{
+    overflow-x: hidden; 
+    flex-direction: column; 
+}
+
 /* Immagine occupa metà schermo */
 #immaginePrincipale, #immaginePrincipale2, #immaginePrincipale3, #mappa{
     height: auto;
@@ -236,16 +241,79 @@ footer{
     display: block;
 }
 
-#immaginePrincipale{ width: 60%; }
+#immaginePrincipale{ 
+    height: calc(100vh - 130px);
+    width: 100%; 
+}
 
-#immaginePrincipale2{ width: 40%; }
+/* immagine in micromovimento continuo */
+#immaginePrincipale{
+  will-change: transform, filter;
+  animation: microMove 8s ease-in-out infinite;
+}
+
+/* movimento minimale: pochi px + micro zoom */
+@keyframes microMove{
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  25%  { transform: translate3d(2px,-2px,0) scale(1.01); }
+  50%  { transform: translate3d(0,2px,0) scale(1.005); }
+  75%  { transform: translate3d(-2px,-1px,0) scale(1.01); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+#contenitoreSlide{
+  bottom: 10px;  
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+    margin: 0 auto;   /* centra orizzontalmente */
+}
+
+#slide{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 1;
+  transition: opacity .35s ease;
+}
+
+#slide.fade-out{
+  opacity: 0;
+}
+
+#prev, #next{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.35);
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  transition: background-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+
+#prev:hover, #next:hover{
+  background: rgba(255,255,255,.25);
+  box-shadow: 0 0 14px rgba(255,255,255,.45);
+  transform: translateY(-50%) scale(1.06);
+}
+
+#prev{ left: 12px; }
+#next{ right: 12px; }
+
+#immaginePrincipale2{ width: 50%; }
 
 #immaginePrincipale3{ 
     width: 50%; 
     border:#8B0000 solid 30px;
 }
 
-#mappa{ width: 70%; }
+#mappa{ width: 80%; }
 
 /* Testo occupa l’altra metà */
 #contenitoreTesto, #contenitoreTesto2, #contenitoreTesto3, #contenitoreTesto4{
@@ -255,7 +323,6 @@ footer{
 }
 
 #formContattaci, #contattaci2{
-    margin-top: -20px;
     padding: 1rem;   
     font-size: 24px;
     text-align: center;
@@ -276,11 +343,14 @@ footer{
 
 #testoSlide{ color: white; }
 
-#testoSlide{ font-size: 3em; }
+#testoSlide{ font-size: 2em; }
 
-#contenitoreTesto{ width: 40%; }
+#contenitoreTesto{ 
+    text-align: center;
+    width: 100%; 
+}
 
-#contenitoreTesto2{ width: 60%; }
+#contenitoreTesto2{ width: 50%; }
 
 #contenitoreTesto3{ 
     color: white;
@@ -457,55 +527,57 @@ input{ height: 30px; }
     color: #fff; 
 }
 
-/* Si usa una media-query per far in modo di impilare gli oggetti del contenitore principale nel caso si riducano le dimensioni dello schermo */
-@media (max-width: 1125px){
-    #contenitorePrincipale, #contenitorePrincipale2, #contenitorePrincipale3{
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 0px;
-    }
-    
-    #contenitorePrincipale{ min-height:0px; }
 
-    #contenitorePrincipale3{ min-height: 150%; }
-    
-    #immaginePrincipale, #immaginePrincipale2, #immaginePrincipale3, #contenitoreTesto, #contenitoreTesto2, #contenitoreTesto3, #slide-a, #slide-b, #slide-c, #slide-d, #formContattaci{
-        width: 100%;
-        height: 50%;
-        box-sizing: border-box;
-    }
+/* SMARTPHONE: ogni “pezzo” occupa 1 schermata (100vh) uno sotto l’altro */
+@media (max-width: 1025px){
 
-    #immaginePrincipale3{ border: none; }
+  #body{
+    overflow-x: hidden; /* Si abilita lo scroll globale per dispositivi mobili */
+  }
 
-    h1{ font-size: 50px; }
+  #contenitorePrincipale, #contenitorePrincipale2, #contenitorePrincipale3{
+    display: flex;
+    flex-direction: column;
+  }
 
-    #contenitoreTesto, #contenitoreTesto2, #contenitoreTesto3{ 
-        padding: 10px;
-        font-size: 20px; 
-    }
+/* immagine principale = 1 schermo */
+  #contenitoreTesto, #contenitoreTesto2, #contenitoreTesto3, #immaginePrincipale, #immaginePrincipale2, #immaginePrincipale3, #mappa, #formContattaci, #contattaci2{
+    box-sizing: border-box;
+    width: 100%;
+  }
 
-    #mappa{
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
-        display: flex;
-    }
-    #contattaci2{ 
-        width:100%;
-        flex: 1; 
-        box-sizing: border-box;
-        margin-top: -10px;
-    }
+  #contenitoreTesto, #contenitoreTesto2{ padding: 1.5rem; }
 
-    #formContattaci{
-        height: auto !important;
-        width: 100%;
-        flex-grow: 1;
-        padding: 1rem;
-    }
-
-    #contattiInfo{ font-size: 20px; }
-
-    /* Box centrale */
-    .consent-box{ width: 90%; }
+  /* immagine principale = 1 schermo */
+  #immaginePrincipale, #slideShow, #contenitoreTesto2, #mappa, #formContattaci, #contattaci2{
+    height: calc(100vh - 130px); /* 130px è l'altezza della barra fissa in alto */
+  }
+  
+  #contenitoreSlide{ width: 100%; }
 }
+
+/* In base al tipo di schermata, si adatta la dimensione del testo per mantenere una buona leggibilità */
+p { font-size: 22px; }
+
+@media (orientation: portrait) and (min-width: 340px){
+  p, #form, #contattiInfo, input, #messaggio, footer{
+    font-size: clamp(
+      13px,
+      calc(13px + (100svh - 600px) * 0.025),
+      40px
+    );
+  }
+}
+
+@media (orientation: portrait) and (min-width: 360px){
+  p, #form, #contattiInfo, input, #messaggio, footer{
+    font-size: clamp(
+      14px,
+      calc(14px + (100svh - 600px) * 0.025),
+      40px
+    );
+  }
+}
+
+
+
