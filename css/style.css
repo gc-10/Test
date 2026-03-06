@@ -1,4 +1,5 @@
-@font-face {
+/* Utilizzo del font personalizzato "Trajan Pro" */
+@font-face{
   font-family: 'Trajan Pro';
   src: url('../fonts/TrajanPro-Regular.woff2') format('woff2'),
        url('../fonts/TrajanPro-Regular.woff') format('woff');
@@ -42,7 +43,7 @@ footer{
 }
 
 /* Barra con i tasti di navigazione dentro il sito e caratteristiche di tutte le tendine che appariranno sotto al menu hamburger */
-#barra-navigazione, #tendina1, #tendina2, #tendina3, #tendina4, #tendina5{
+#barra-navigazione, #tendina1, #tendina2, #tendina3, #tendina4{
     height: 40px;
     background-color: #8B0000;
 }
@@ -69,8 +70,6 @@ footer{
 #tendina3{ top: 210px; }
 
 #tendina4{ top: 250px; }
-
-#tendina5{ top: 290px; }
 
 /* Caratteristiche per avere un effetto di scorrimento dall'alto verso il basso degli elementi del menu a tendina*/
 #tendina1, #tendina2, #tendina3, #tendina4, #tendina5{
@@ -242,7 +241,7 @@ footer{
 }
 
 #immaginePrincipale{ 
-    height: calc(100dvh - 130px);
+    height: calc(100vh - 130px);
     width: 100%; 
 }
 
@@ -387,22 +386,23 @@ a{ color:white; }
 input, #messaggio{
     text-align: center;
     width: 90%;
-    border-radius: 10px;
     font-size: 20px;
-    border-radius: 80px;
+    padding: 10px;
 }
 
-input{ height: 30px; }
+input{ border-radius: 5px; }
+
 
 #invia{
-    margin-top: -10px;
     color: white;
-    height: 40px;
     font-size: 20px;
     background-color: #8B0000;
     border: 1px solid #8B0000;
-    border-radius: 80px;
+    border-radius: 15px;
     width: 60%;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
     cursor: pointer;
     /* Sul passaggio del mouse sopra il tasto di invio richiesta, si applica un effetto transitorio soft insieme al successivo */
     transition: transform 0.2s ease-in-out;
@@ -528,10 +528,10 @@ input{ height: 30px; }
 }
 
 
-/* SMARTPHONE: ogni “pezzo” occupa 1 schermata (100dvh) uno sotto l’altro */
-@media (max-width: 1025px){
+/* SMARTPHONE: ogni “pezzo” occupa 1 schermata (100vh) uno sotto l’altro */
+@media (max-width: 1024px){
 
-  body{
+  #body{
     overflow-x: hidden; /* Si abilita lo scroll globale per dispositivi mobili */
   }
 
@@ -550,33 +550,78 @@ input{ height: 30px; }
 
   /* immagine principale = 1 schermo */
   #immaginePrincipale, #slideShow, #contenitoreTesto2, #mappa, #formContattaci, #contattaci2{
-    height: calc(100dvh - 130px); /* 130px è l'altezza della barra fissa in alto */
+    height: calc(100vh - 130px); /* 130px è l'altezza della barra fissa in alto */
   }
   
   #contenitoreSlide{ width: 100%; }
 }
 
-/* In base al tipo di schermata, si adatta la dimensione del testo per mantenere una buona leggibilità */
-p { font-size: 22px; }
+p{ font-size: 22px; }
 
+/* In base al tipo di schermata, si adattano alcune dimensioni per mantenere una buona leggibilità */
+
+/* Smartphone Piccolo_vista verticale*/
 @media (orientation: portrait) and (min-width: 340px){
-  p, #form, #contattiInfo, input, #messaggio, footer, #invia{
+  p, #form, #contattiInfo, input, #messaggio, footer, #invia, button, #tendina1, #tendina2, #tendina3, #tendina4{
     font-size: clamp(
       13px,
-      calc(13px + (100dvh - 600px) * 0.026),
+      calc(13px + (100svh - 600px) * 0.025),
+      40px
+    );
+  }
+}
+ /* Smartphone medio-grande_vista verticale */
+@media (orientation: portrait) and (min-width: 360px){
+  p, #form, #contattiInfo, input, #messaggio, footer, #invia, button, #tendina1, #tendina2, #tendina3, #tendina4{
+    font-size: clamp(
+      14px,
+      calc(14px + (100svh - 600px) * 0.025),
       40px
     );
   }
 }
 
-@media (orientation: portrait) and (min-width: 360px){
-  p, #form, #contattiInfo, input, #messaggio, footer, #invia{
+/* Tablet piccolo_vista verticale */
+@media (orientation: portrait) and (min-width: 450px){
+  p, #form, #contattiInfo, input, #messaggio, footer, button, #invia, #tendina1, #tendina2, #tendina3, #tendina4{
     font-size: clamp(
-      14px,
-      calc(14px + (100dvh - 600px) * 0.026),
+      15px,
+      calc(15px + (100svh - 600px) * 0.025),
       40px
     );
   }
+}
+
+/* Tablet medio_vista verticale */
+@media (orientation: portrait) and (min-width: 750px){
+  p, #form, #contattiInfo, input, #messaggio, footer, button, #invia{
+    font-size: clamp(
+      20px,
+      calc(20px + (100svh - 600px) * 0.025),
+      40px
+    );
+  }
+  #testoSlide, h1, h3{
+    font-size: clamp(
+      30px,
+      calc(30px + (100svh - 600px) * 0.05),
+      60px
+    );
+  }
+  #bottoneSelezione, #selezionato, #tendina1, #tendina2, #tendina3, #tendina4{ font-size: 22px; }
+
+}
+
+/* Tablet grande_vista verticale */
+@media (orientation: portrait) and (min-width: 900px){
+  p, #form, #contattiInfo, input, #messaggio, footer, button, #invia{
+    font-size: clamp(
+      21px,
+      calc(21px + (100svh - 600px) * 0.025),
+      40px
+    ); 
+  }
+  #bottoneSelezione, #selezionato, #tendina1, #tendina2, #tendina3, #tendina4{ font-size: 24px; }
 }
 
 
