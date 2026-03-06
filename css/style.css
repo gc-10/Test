@@ -242,7 +242,7 @@ footer{
 }
 
 #immaginePrincipale{ 
-    height: calc(100vh - 130px);
+    height: calc(100dvh - 130px);
     width: 100%; 
 }
 
@@ -528,10 +528,10 @@ input{ height: 30px; }
 }
 
 
-/* SMARTPHONE: ogni “pezzo” occupa 1 schermata (100vh) uno sotto l’altro */
+/* SMARTPHONE: ogni “pezzo” occupa 1 schermata (100dvh) uno sotto l’altro */
 @media (max-width: 1025px){
 
-  #body{
+  body{
     overflow-x: hidden; /* Si abilita lo scroll globale per dispositivi mobili */
   }
 
@@ -550,7 +550,7 @@ input{ height: 30px; }
 
   /* immagine principale = 1 schermo */
   #immaginePrincipale, #slideShow, #contenitoreTesto2, #mappa, #formContattaci, #contattaci2{
-    height: calc(100vh - 130px); /* 130px è l'altezza della barra fissa in alto */
+    height: calc(100dvh - 130px); /* 130px è l'altezza della barra fissa in alto */
   }
   
   #contenitoreSlide{ width: 100%; }
@@ -560,20 +560,20 @@ input{ height: 30px; }
 p { font-size: 22px; }
 
 @media (orientation: portrait) and (min-width: 340px){
-  p, #form, #contattiInfo, input, #messaggio, footer{
+  p, #form, #contattiInfo, input, #messaggio, footer, button{
     font-size: clamp(
       13px,
-      calc(13px + (100svh - 600px) * 0.025),
+      calc(13px + (100dvh - 600px) * 0.026),
       40px
     );
   }
 }
 
 @media (orientation: portrait) and (min-width: 360px){
-  p, #form, #contattiInfo, input, #messaggio, footer{
+  p, #form, #contattiInfo, input, #messaggio, footer, button{
     font-size: clamp(
       14px,
-      calc(14px + (100svh - 600px) * 0.025),
+      calc(14px + (100dvh - 600px) * 0.026),
       40px
     );
   }
