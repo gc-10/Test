@@ -241,7 +241,7 @@ footer{
 }
 
 #immaginePrincipale{ 
-    height: calc(100vh - 130px);
+    height: calc(100svh - 130px);
     width: 100%; 
 }
 
@@ -528,10 +528,10 @@ input{ border-radius: 5px; }
 }
 
 
-/* SMARTPHONE: ogni “pezzo” occupa 1 schermata (100vh) uno sotto l’altro */
+/* SMARTPHONE: ogni “pezzo” occupa 1 schermata (100svh) uno sotto l’altro */
 @media (max-width: 1024px){
 
-  #body{
+  body{
     overflow-x: hidden; /* Si abilita lo scroll globale per dispositivi mobili */
   }
 
@@ -550,7 +550,7 @@ input{ border-radius: 5px; }
 
   /* immagine principale = 1 schermo */
   #immaginePrincipale, #slideShow, #contenitoreTesto2, #mappa, #formContattaci, #contattaci2{
-    height: calc(100vh - 130px); /* 130px è l'altezza della barra fissa in alto */
+    height: calc(100svh - 130px); /* 130px è l'altezza della barra fissa in alto */
   }
   
   #contenitoreSlide{ width: 100%; }
