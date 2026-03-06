@@ -613,7 +613,7 @@ p{ font-size: 22px; }
 }
 
 /* Tablet grande_vista verticale */
-@media (orientation: portrait) and (min-width: 900px){
+@media (orientation: portrait) and (min-width: 850px){
   p, #form, #contattiInfo, input, #messaggio, footer, button, #invia{
     font-size: clamp(
       21px,
