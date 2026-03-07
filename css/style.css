@@ -392,6 +392,7 @@ input, #messaggio{
 
 input{ border-radius: 5px; }
 
+p{ font-size: 22px; }
 
 #invia{
     color: white;
@@ -436,131 +437,55 @@ input{ border-radius: 5px; }
     color: black; 
     text-decoration: none;
     transform-origin: left center;
-    transition: transform 1s ease, color 0.5s ease;
+    transition: 
+      transform 1s ease, 
+      color 0.5s ease;
 }
 
-#instagram1:hover, #instagram2:hover, #facebook:hover, #whatsapp:hover{ transform: translateY(-1px) scale(1.06); }
+/* Sul passaggio del mouse sopra le icone dei social, si applica un effetto transitorio più soft. */
+#instagram1:hover, #instagram2:hover, #facebook:hover, #whatsapp:hover{ 
+  /* Si applica un effetto di ingrandimento e spostamento verso l'alto. */
+  transform: 
+    translateY(-1px) 
+    scale(1.06); 
+}
 
+/* Oltre all'effetto di ingrandimento, si applica un cambio di colore specifico per ogni social. */
 #instagram1:hover, #instagram2:hover{  color: rgb(109, 43, 109); }
 
 #facebook:hover{ color: rgb(28, 10, 77); }
 
 #whatsapp:hover{ color: rgb(16, 77, 10); }
 
-#disclaimer{ 
-    margin-top: 5px;
-    font-size: 15px; 
-}
-
-/* Modal base */
-#consent-modal.consent-hidden{ display: none; }
-
-/* Box centrale */
-.consent-box{
-    font-size: 20px;
-    position: fixed;
-    bottom: 0px;
-    left: 50%;
-    width: 500px;
-    padding: 15px;
-    background: rgb(0, 0, 0);
-    color: white;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-    text-align: center;
-    z-index: 10001;
-    opacity: 0;
-    transform: 
-        translateX(-50%)
-        scale(0.9);
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-/* Quando appare */
-.consent-box.appear{
-  opacity: 1;
-  transform: 
-    translate(-50%) 
-    scale(1);
-}
-
-/* Transizione in uscita del banner */
-.consent-box.disappear {
-  opacity: 0;
-  transform: translate(-50%) scale(0.9);
-}
-
-/* Titolo e testo */
-.consent-box h2{ margin-top: 0; }
-
-.consent-box p{ 
-    color: white; 
-    font-size: 0.9rem; 
-}
-
-.consent-box p a{ 
-    color: white; 
-    text-decoration: none; 
-}
-
-.consent-box p a:hover{ text-decoration: underline; }
-
-/* Pulsanti */
-.consent-actions{
-  margin-top: 1em;
-  display: flex; justify-content: space-around;
-}
-
-.consent-actions button{
-  padding: 8px 16px;
-  border: none; border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-#consent-accept{ 
-    background: darkolivegreen; 
-    color: #fff; 
-}
-
-#consent-decline{ 
-    background: darkred; 
-    color: #fff; 
-}
-
-
-/* SMARTPHONE: ogni “pezzo” occupa 1 schermata (100svh) uno sotto l’altro */
+/* Responsive Design applicato quando non abbiamo dispositivi con schermo grande. */
 @media (max-width: 1024px){
+  body{ overflow-x: hidden; }   /* Si blocca lo scroll orizzontale globale per evitare che si veda il contenuto fuori dallo schermo. */
 
-  body{
-    overflow-x: hidden; /* Si abilita lo scroll globale per dispositivi mobili */
-  }
-
+  /* Si adattano le dimensioni dei contenitori principali e si dispongono in colonna per adattarsi meglio alla visualizzazione verticale. */
   #contenitorePrincipale, #contenitorePrincipale2, #contenitorePrincipale3{
-    display: flex;
+    display: flex;   /* Contenitore flessibile che organizza i suoi figli in un certo modo (in questo caso in colonna). */
     flex-direction: column;
   }
 
-/* immagine principale = 1 schermo */
+/* Elementi che devono adattarsi verticalmente prendendo tutta la larghezza. */
   #contenitoreTesto, #contenitoreTesto2, #contenitoreTesto3, #immaginePrincipale, #immaginePrincipale2, #immaginePrincipale3, #mappa, #formContattaci, #contattaci2{
-    box-sizing: border-box;
+    box-sizing: border-box;   /* Serve per includere il padding e il bordo all'interno della larghezza totale dell'elemento, evitando che si espanda oltre la dimensione dello schermo. */
     width: 100%;
   }
 
   #contenitoreTesto, #contenitoreTesto2{ padding: 1.5rem; }
 
-  /* immagine principale = 1 schermo */
-  #immaginePrincipale, #slideShow, #contenitoreTesto2, #mappa, #formContattaci, #contattaci2{
-    height: calc(100svh - 130px); /* 130px è l'altezza della barra fissa in alto */
-  }
+  /* Altezze calcolate prendendo 100% la dimensione dello schermo (100svh) e togliendo l'altezza della barra fissa in alto. */
+  #immaginePrincipale, #slideShow, #contenitoreTesto2, #mappa, #formContattaci, #contattaci2{ height: calc(100svh - 130px); }
   
   #contenitoreSlide{ width: 100%; }
 }
 
-p{ font-size: 22px; }
+/* In base al tipo di schermata, si adattano alcune dimensioni per mantenere una buona leggibilità.
+   Si inseriscono "clamps" che servono a limitare i valori tra un minimo e un massimo per avere le dimensioni ottimali.
+   Inoltre, il valore cambia dinamicamente in base alla dimensione dello schermo utilizzando la funzione calc() che cambia il valore in modo proporzionale. */
 
-/* In base al tipo di schermata, si adattano alcune dimensioni per mantenere una buona leggibilità */
-
-/* Smartphone Piccolo_vista verticale*/
+/* Smartphone Piccolo_vista verticale. */
 @media (orientation: portrait) and (min-width: 340px){
   p, #form, #contattiInfo, input, #messaggio, footer, #invia, button, #tendina1, #tendina2, #tendina3, #tendina4{
     font-size: clamp(
@@ -570,7 +495,8 @@ p{ font-size: 22px; }
     );
   }
 }
- /* Smartphone medio-grande_vista verticale */
+
+ /* Smartphone medio-grande_vista verticale. */
 @media (orientation: portrait) and (min-width: 360px){
   p, #form, #contattiInfo, input, #messaggio, footer, #invia, button, #tendina1, #tendina2, #tendina3, #tendina4{
     font-size: clamp(
@@ -581,7 +507,7 @@ p{ font-size: 22px; }
   }
 }
 
-/* Tablet piccolo_vista verticale */
+/* Tablet piccolo_vista verticale. */
 @media (orientation: portrait) and (min-width: 450px){
   p, #form, #contattiInfo, input, #messaggio, footer, button, #invia, #tendina1, #tendina2, #tendina3, #tendina4{
     font-size: clamp(
@@ -592,7 +518,8 @@ p{ font-size: 22px; }
   }
 }
 
-/* Tablet medio_vista verticale */
+/* Tablet medio_vista verticale.
+   Da notare che si cambiano altri elementi rispetto ai precedenti dispositivi. */
 @media (orientation: portrait) and (min-width: 750px){
   p, #form, #contattiInfo, input, #messaggio, footer, button, #invia{
     font-size: clamp(
@@ -612,7 +539,7 @@ p{ font-size: 22px; }
 
 }
 
-/* Tablet grande_vista verticale */
+/* Tablet grande_vista verticale. */
 @media (orientation: portrait) and (min-width: 850px){
   p, #form, #contattiInfo, input, #messaggio, footer, button, #invia{
     font-size: clamp(
