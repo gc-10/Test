@@ -1,6 +1,6 @@
 /* Prefisso di un percorso calcolato, che cambierà in base alla pagina in cui mi trovo, in modo da avere percorsi relativi ovunque.
    Se mi trovo in una pagina diversa dalla radice, allora il prefisso sarà dato dal basePath, altrimenti se sono sulla radice dal "" */
-const base=window.basePath || "";   
+const base=window.basePath || "";  
 
 /* Si  mette una variabile di sessione, in modo che si aggiorni via via che si fa una selezione tra i bottoni del menu.
    Per defaul è imposta sul primo elemento */
@@ -25,7 +25,7 @@ function aggiornaImmagineBarra() {
     const immagine=document.createElement("img");
     const contenuto=document.getElementById("contenuto");
     // Controllo della dimensione dello schermo
-    if(window.innerWidth<=1125){ 
+    if(window.innerWidth<=1024){ 
         immagine.id="logo_ridotto";
         immagine.src=base+"img/Immagine_ridotta.png";   // Da notare il percorso come cambia a proposito del prefisso dato
         // Ripuliamo eventuali contenuti precedenti
@@ -44,8 +44,7 @@ function aggiornaImmagineBarra() {
     // Creazione di una classe CSS per avere un effetto di transizione sul contenuto della pagina
     setTimeout(()=>{ 
         contenuto.classList.add("visible");
-        immagine.classList.add("visible"); 
-    }, 10);  
+    }, 50);  
 }
 
 // Funzione che crea la barra di navigazione con gli eventi associati, al momento di creazione della pagina, per display di grandi dimensioni
