@@ -51,15 +51,10 @@ footer{
 /* caratteristiche di ciascuna delle barre che cambia la posizione di partenza e della barra inziale con un effetto transitorio grazie anche alla classe sottostante */
 #barra-navigazione{ 
     opacity: 0;
-    transform: translateY(-30px);
-    transition:
-        opacity 0.4s ease,
-        transform 0.8s ease;
     top: 90px;
 }
 
 #barra-navigazione.visible{ 
-    transform: translateY(0);
     opacity: 1; 
 }
 
@@ -122,37 +117,12 @@ footer{
     border-radius: 15px;
     margin-bottom: 10px;
     cursor: pointer;
-    transition: transform 0.25s ease, opacity 0.25s ease;
-    transform-origin: center center;
-    transition: transform 0.28s ease;
-}
-
-/* Hover SOLO quando è visibile */
-#logo.visible:hover{
-    transform: translateY(0) scale(0.985);
 }
 
 /* Logo dimensioni ridotte per display ridotti */
 #logo_ridotto{
     height: 90px;
     border-radius: 10px;
-}
-
-/* Stato iniziale del logo e del contenuto che cambiano appena si carica la pagina con un effetto di sfumatura.
-   All'inzio saranno completamente trasparenti, opacità a 0, e man mano che entrano aumentano la loro visibilità.
-   La transizione per l'opacità inizia lentamente e accellera verso la fine; il tutto i 0.3 secondi*/
-#logo, #logo_ridotto{
-    opacity: 0;
-    transform: translateY(-30px); 
-    transition: 
-        opacity 0.4s ease, 
-        transform 0.4s ease;
-}
-
-/* Effetto finale per la sfumatura, in cui logo e contenuto non sono più trasparenti */
-#logo.visible, #logo_ridotto.visible{ 
-    transform: translateY(0); 
-    opacity: 1; 
 }
 
 /* Caratteristiche tasti della barra di navigazione sia i bottoni non selezionati sia il bottone selezioanto */
@@ -479,6 +449,8 @@ p{ font-size: 22px; }
   #immaginePrincipale, #slideShow, #contenitoreTesto2, #mappa, #formContattaci, #contattaci2{ height: calc(100svh - 130px); }
   
   #contenitoreSlide{ width: 100%; }
+
+  #testoSlide{ padding: 0 10px 0 10px; }
 }
 
 /* In base al tipo di schermata, si adattano alcune dimensioni per mantenere una buona leggibilità.
@@ -550,6 +522,7 @@ p{ font-size: 22px; }
   }
   #bottoneSelezione, #selezionato, #tendina1, #tendina2, #tendina3, #tendina4{ font-size: 24px; }
 }
+
 
 
 
