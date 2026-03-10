@@ -1,62 +1,59 @@
-/* Utilizzo del font personalizzato "Trajan Pro" */
+/* Utilizzo del font personalizzato "Trajan Pro". */
 @font-face{
   font-family: 'Trajan Pro';
-  src: url('../fonts/TrajanPro-Regular.woff2') format('woff2'),
-       url('../fonts/TrajanPro-Regular.woff') format('woff');
+  src: 
+    url('../fonts/TrajanPro-Regular.woff2') format('woff2'),
+    url('../fonts/TrajanPro-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-html, body {
-  font-family: 'Trajan Pro', serif;
-}
+html, body{ font-family: 'Trajan Pro', serif; }
 
-input, button, textarea, select {
-  font-family: inherit;
-}
+/* Si fa ereditare il font a tutti gli elementi del sito, in modo da avere un aspetto coerente. */
+input, button, textarea, select{ font-family: inherit; }
 
 html, body{ 
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    /* Si blocca lo scroll globale e si va scrollare solo il contenuto interno in modo da non intaccare il logo */
-    overflow: hidden;   
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* Si blocca lo scroll globale e si va scrollare solo il contenuto interno in modo da non intaccare il logo. */
+  overflow: hidden;   
 }
 
 footer{
-    background-color: #350101;  
-    color: white;
-    text-align: center;
-    padding: 20px;
-    font-size: 16px;
-    position: relative;
-    z-index: 500;
+  background-color: #350101;  
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+  position: relative;
+  z-index: 500;
 }
 
-/* Barra fissa in alto dove sarà presente il logo dell'azienda, la cui altezza si adatta al contenuto */
+/* Barra fissa in alto dove sarà presente il logo dell'azienda, la cui altezza si adatta al contenuto. */
 #barra-titolo{
-    height: fit-content;    
-    top: 0;
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3); 
+  height: fit-content;    
+  top: 0;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3); 
 }
 
-/* Barra con i tasti di navigazione dentro il sito e caratteristiche di tutte le tendine che appariranno sotto al menu hamburger */
+/* Barra con i tasti di navigazione dentro il sito e caratteristiche di tutte le tendine che appariranno sotto al menu hamburger. */
 #barra-navigazione, #tendina1, #tendina2, #tendina3, #tendina4{
-    height: 40px;
-    background-color: #8B0000;
+  height: 40px;
+  background-color: #8B0000;
 }
 
-/* caratteristiche di ciascuna delle barre che cambia la posizione di partenza e della barra inziale con un effetto transitorio grazie anche alla classe sottostante */
+/* caratteristiche di ciascuna delle barre che cambia la posizione di partenza e della barra inziale con un effetto transitorio grazie anche alla classe "visible" sottostante. */
 #barra-navigazione{ 
-    opacity: 0;
-    top: 90px;
+  opacity: 0;
+  top: 90px;
 }
 
-#barra-navigazione.visible{ 
-    opacity: 1; 
-}
+/* Caratteristiche che terminano l'effetto di scorrimento della barra di navigazione. */
+#barra-navigazione.visible{ opacity: 1; }
 
 #tendina1{ top: 130px; }
 
@@ -66,162 +63,167 @@ footer{
 
 #tendina4{ top: 250px; }
 
-/* Caratteristiche per avere un effetto di scorrimento dall'alto verso il basso degli elementi del menu a tendina*/
+/* Caratteristiche per avere un effetto di scorrimento dall'alto verso il basso degli elementi del menu a tendina. */
 #tendina1, #tendina2, #tendina3, #tendina4, #tendina5{
-    opacity: 0;
-    transform: translateY(-30px); 
-    transition: 
-        opacity 0.4s ease, 
-        transform 0.4s ease;
+  opacity: 0;
+  transform: translateY(-30px); 
+  transition: 
+      opacity 0.4s ease, 
+      transform 0.4s ease;
 }
 
-/* Caratteristiche che terminano l'effetto dello scorrimento */
+/* Caratteristiche che terminano l'effetto dello scorrimento del menù hamburger. */
 #tendina1.visible, #tendina2.visible, #tendina3.visible, #tendina4.visible, #tendina5.visible{
-    opacity: 1;
-    transform: translateY(0); 
+  opacity: 1;
+  transform: translateY(0); 
 }
 
-/* Attributi comuni tra le due barre fisse*/
 #barra-titolo, #barra-navigazione, #tendina1, #tendina2, #tendina3, #tendina4, #tendina5{
-    position: fixed;   /* Barre posizionate fisse */
-    width: 100%;   
-    z-index: 1000;   /* La barra in alto deve sempre rimanere fissa sopra gli altri contenuti (1000 valore alto di riferimento) */
-    /* Si centrano i contenuti */
-    display: flex;            
-    justify-content: center;  
-    align-items: center;    
+  position: fixed;   /* Barre posizionate fisse. */
+  width: 100%;   
+  z-index: 1000;   /* La barra in alto deve sempre rimanere fissa sopra gli altri contenuti (1000 valore alto di riferimento). */
+  display: flex;            
+  justify-content: center;   /* Si centra orizzontalmente il contenuto all'interno della barra. */
+  align-items: center;    
 }
 
 #tendina{
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    z-index: 1100;
-    cursor: pointer;
-    background: transparent;
-    color: #8B0000;
-    font-size: 30px;
-    padding: 30px 8px 0 8px;
-    border: 1.5px solid rgba(255,255,255,0.6);
-    backdrop-filter: blur(10px);
-    transition: transform 0.2s ease;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: 1100;   /* Il menu hamburger deve essere sempre sopra a tutto (1100 valore più alto di riferimento. */
+  cursor: pointer;
+  background: transparent;
+  color: #8B0000;
+  font-size: 30px;
+  padding: 30px 8px 0 8px;
+  border: 1.5px solid rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);   /* Si applica un effetto di sfocatura dello sfondo dietro il menu hamburger, creando un effetto di trasparenza sfocata. */
+  transition: transform 0.2s ease;
 }
 
-#tendina:active{
-    transform: scale(0.92);
-}
+/* Quando l’elemento con id="tendina" è nello stato :active (cioè mentre si sta sta cliccando/toccando), viene rimpicciolito al 92% della sua dimensione normale.
+   L'effetto visivo è come se il pulsante venisse “premuto”. */
+#tendina:active{ transform: scale(0.92); }
 
-/* Logo dell'azienda grande */
+/* Logo dell'azienda grande. */
 #logo{
-    height: 90px;
-    border-radius: 15px;
-    margin-bottom: 10px;
-    cursor: pointer;
+  height: 90px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+  transform-origin: center;   /* Si imposta il punto di origine per le trasformazioni (ingrandimento, spostamento) al centro dell'elemento. */
 }
 
-/* Logo dimensioni ridotte per display ridotti */
+/* Effetto di ingrandimento del logo al passaggio del mouse del 1% (1.01). */
+#logo:hover{ transform: scale(1.01); }
+
+/* Logo dimensioni ridotte per display ridotti. */
 #logo_ridotto{
-    height: 90px;
-    border-radius: 10px;
+  height: 90px;
+  border-radius: 10px;
 }
 
-/* Caratteristiche tasti della barra di navigazione sia i bottoni non selezionati sia il bottone selezioanto */
+/* Caratteristiche tasti della barra di navigazione sia i bottoni non selezionati sia il bottone selezionato. */
 #bottoneSelezione, #selezionato{
-    font-size: 18px;
-    margin: 60px;
-    color: whitesmoke;
-    background-color: #8B0000;
-    border:#8B0000;
-    border-top-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    cursor: pointer;
-    border: none;
-    /* Sul passaggio del mouse sopra uno dei bottoni della barra di navigazione, si applica un effetto transitorio più soft */
-    transition: 
-        box-shadow 0.5s ease,   
-        transform 0.5s ease;
+  font-size: 18px;
+  margin: 60px;
+  color: whitesmoke;
+  background-color: #8B0000;
+  border:#8B0000;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  cursor: pointer;
+  border: none;
+  /* Sul passaggio del mouse sopra uno dei bottoni della barra di navigazione, si applica un effetto transitorio più soft. */
+  transition: 
+    box-shadow 0.5s ease,   
+    transform 0.5s ease;
 }
 
-/* Effetto  di ingrandimento delle scritte al passaggio del mouse sopra uno dei bottoni della barra di navigazione */
+/* Effetto  di ingrandimento delle scritte al passaggio del mouse sopra uno dei bottoni della barra di navigazione. */
 #bottoneSelezione:hover, #selezionato:hover{
   transform: translateY(-2px) scale(1.025);
   box-shadow: 0 8px 18px rgba(0,0,0,.25);
 }
 
+/* Viene creato lo pseudo-elemento ::after per entrambi i bottoni per avere un effetto finale su di essi, indicato dentro il codice. */
 #bottoneSelezione::after, #selezionato::after{
   position: absolute;
   top: 0;
   left: -130%;
   width: 120%;
   height: 100%;
-  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%);
-  transition: left .45s ease;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%);   /* Si crea un gradiente lineare che va da trasparente a una sfumatura di bianco e poi torna a trasparente, con un angolo di 110 gradi. */
+  transition: left .45s ease;   /* Transizione per la proprietà "left" con durata di 0.45 secondi e effetto di easing (parte veloce e rallenta alla fine). */
 }
 
-#bottoneSelezione:hover::after, #selezionato:hover::after{
-  left: 120%;
-}
+/* Quando si passa il mouse su #bottoneSelezione o #selezionato, il loro ::after viene spostato a destra fino a left:120% (oltre il contenitore), producendo un effetto scorrimento/shine se combinato con position + transition. */
+#bottoneSelezione:hover::after, #selezionato:hover::after{ left: 120%; }
 
+/* Effetto di ingrandimento del tasto di invio al passaggio del mouse del 10% (1.10). */
 #invia:hover{ transform: scale(1.10); }
 
-/* Effetto sul bottone selezionato nella barra */
-#selezionato{ box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.679);  }
+/* Effetto sul bottone selezionato nella barra. */
+#selezionato{ box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.679); }
 
-/* Spazio per evitare che il contenuto venga nascosto sotto la barra */
+/* Spazio per evitare che il contenuto venga nascosto sotto la barra. */
 #contenuto{
-    position: absolute;
-    /* Contenuto posizionato subito dopo le sbarre fisse (250px) con larghezza (SX, DX) e altezza massime */
-    top: 130px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color:white;
-    overflow-y: auto;   /* Scroll solo del contenuto interno */
-    scroll-margin-top: 250px;   /* Quando si scrolla alla sezione in questione, si evitano le due barre soprastanti */
-    /* Caratteristiche per avere un effetto di scorrimento dall'alto verso il basso partendo da 30px in alto*/
-    opacity: 0;
-    transform: translateY(-30px); 
-    transition: 
-        opacity 0.4s ease, 
-        transform 1.2s ease;
+  position: absolute;
+  /* Contenuto posizionato subito dopo le sbarre fisse (250px) con larghezza (SX, DX) e altezza massim.e */
+  top: 130px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color:white;
+  overflow-y: auto;   /* Scroll solo del contenuto interno. */
+  scroll-margin-top: 250px;   /* Quando si scrolla alla sezione in questione, si evitano le due barre soprastanti. */
+  /* Caratteristiche per avere un effetto di scorrimento dall'alto verso il basso partendo da 30px in alto. */
+  opacity: 0;
+  transform: translateY(-30px); 
+  transition: 
+      opacity 0.4s ease, 
+      transform 1.2s ease;
 }
 
-/* Caratteristiche che terminano l'effetto dello scorrimento e si scende a 0, mentre l'opacità aumenta */
+/* Caratteristiche che terminano l'effetto dello scorrimento e si scende a 0, mentre l'opacità aumenta. */
 #contenuto.visible{
-    opacity: 1;
-    transform: translateY(0); 
+  opacity: 1;
+  transform: translateY(0); 
 }
 
 #contenitorePrincipale, #contenitorePrincipale2, #contenitorePrincipale3{
-    display: flex;
-    width: 100%;
-    min-height: 100%;
+  display: flex;
+  width: 100%;
+  min-height: 100%;
 }
 
 #contenitorePrincipale{
-    overflow-x: hidden; 
-    flex-direction: column; 
+  overflow-x: hidden; 
+  flex-direction: column; 
 }
 
-/* Immagine occupa metà schermo */
 #immaginePrincipale, #immaginePrincipale2, #immaginePrincipale3, #mappa{
-    height: auto;
-    object-fit: cover;
-    display: block;
+  height: auto;
+  object-fit: cover;   /* Adattamento delle immagini e della mappa all'area disponibile senza distorsioni. */
+  display: block;
 }
 
-#immaginePrincipale{ 
-    height: calc(100svh - 130px);
-    width: 100%; 
-}
-
-/* immagine in micromovimento continuo */
 #immaginePrincipale{
-  will-change: transform, filter;
-  animation: microMove 8s ease-in-out infinite;
+  /* Altezze calcolate prendendo 100% la dimensione dello schermo (100svh) e togliendo l'altezza della barra fissa in alto. */
+  height: calc(100svh - 130px);
+  width: 100%; 
+  /* Effetto di micromovimento continuo dell'immagine principale.*/
+  will-change: transform, filter;   /* Si indica al browser che l'elemento subirà trasformazioni e cambiamenti di filtro, permettendo l'ottimizzazione delle prestazioni dell'animazione. */
+  animation: microMove 8s ease-in-out infinite;   /* Si applica l'animazione "microMove" con durata di 8 secondi, effetto di easing (parte lenta, accelera a metà, rallenta alla fine) e si ripete all'infinito. */
 }
 
-/* movimento minimale: pochi px + micro zoom */
+/* Animazione applicata all'immagine principale per creare un effetto di micromovimento continuo.
+   I keyframe in CSS sono i punti chiave di un’animazione: definiscono come deve cambiare un elemento in certi momenti del tempo.
+   L’elemento si sposta di pochi px (X: +dx destra, -dx sinistra; Y: -dy su, +dy giù).
+   Applica un micro-zoom (1 -> 1.01 -> 1.005 -> 1.01 -> 1), passando per 0/25/50/75/100% e tornando esattamente a stato iniziale.
+   Così l’effetto resta fluido, leggero e non invasivo. */
 @keyframes microMove{
   0%   { transform: translate3d(0,0,0) scale(1); }
   25%  { transform: translate3d(2px,-2px,0) scale(1.01); }
@@ -230,26 +232,26 @@ footer{
   100% { transform: translate3d(0,0,0) scale(1); }
 }
 
+/* contenitore del carosello di immagini. */
 #contenitoreSlide{
   bottom: 10px;  
   position: relative;
   height: 100%;
   overflow: hidden;
-    margin: 0 auto;   /* centra orizzontalmente */
+  margin: 0 auto;   /* Si centra orizzontalmente il contenitore del carosello. */
 }
 
 #slide{
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
+  object-fit: cover;   /* Adattamento delle immagini nell'area del carosello senza distorsioni. */
+  display: block;   /* Serve a rimuovere lo spazio sotto le immagini del carosello causato dal display inline predefinito. */
   opacity: 1;
-  transition: opacity .35s ease;
+  transition: opacity .35s ease;   /* Transizione per l'effetto di dissolvenza con durata di 0.35 secondi e effetto di easing (parte veloce e rallenta alla fine). */
 }
 
-#slide.fade-out{
-  opacity: 0;
-}
+/* Effetto di dissolvenza in uscita per le immagini del carosello. */
+#slide.fade-out{ opacity: 0; }
 
 #prev, #next{
   position: absolute;
@@ -263,51 +265,60 @@ footer{
   color: #fff;
   font-size: 28px;
   cursor: pointer;
-  transition: background-color .25s ease, box-shadow .25s ease, transform .25s ease;
+  /* Effetto di evidenziazione dei tasti di navigazione del carosello al passaggio del mouse più soft. */
+  transition: 
+    background-color .25s ease, 
+    box-shadow .25s ease, 
+    transform .25s ease;  
 }
 
+/* Effetto di evidenziazione dei tasti di navigazione del carosello al passaggio del mouse. */
 #prev:hover, #next:hover{
   background: rgba(255,255,255,.25);
   box-shadow: 0 0 14px rgba(255,255,255,.45);
-  transform: translateY(-50%) scale(1.06);
+  /* Si applica un effetto di ingrandimento del 6% (1.06) e spostamento verso l'alto del 50% per mantenere il centro del tasto in posizione. */
+  transform: 
+    translateY(-50%) 
+    scale(1.06);
 }
 
 #prev{ left: 12px; }
+
 #next{ right: 12px; }
 
 #immaginePrincipale2{ width: 50%; }
 
 #immaginePrincipale3{ 
-    width: 50%; 
-    border:#8B0000 solid 30px;
+  width: 50%; 
+  border:#8B0000 solid 30px;
 }
 
 #mappa{ width: 80%; }
 
 /* Testo occupa l’altra metà */
 #contenitoreTesto, #contenitoreTesto2, #contenitoreTesto3, #contenitoreTesto4{
-    padding:1.5rem;   /* Si mette un padding quasi 2 volte superiore all'elemento radice (HTML) */
-    color: black;
-    font-size: 24px;
+  padding:1.5rem;   /* Si mette un padding di 1,5 volte superiore all'elemento radice (HTML). */
+  color: black;
+  font-size: 24px;
 }
 
 #formContattaci, #contattaci2{
-    padding: 1rem;   
-    font-size: 24px;
-    text-align: center;
-    width: 50%;
-    object-fit: cover;
-    display: block;
+  padding: 1rem;   
+  font-size: 24px;
+  text-align: center;
+  width: 50%;
+  object-fit: cover;
+  display: block;
 }
 
 #formContattaci{
-    color: white;
-    background-color: black; 
+  color: white;
+  background-color: black; 
 }
 
 #contattaci2{ 
-    color: black;
-    background-color: white; 
+  color: black;
+  background-color: white; 
 }
 
 #testoSlide{ color: white; }
@@ -315,49 +326,49 @@ footer{
 #testoSlide{ font-size: 2em; }
 
 #contenitoreTesto{ 
-    text-align: center;
-    width: 100%; 
+  text-align: center;
+  width: 100%; 
 }
 
 #contenitoreTesto2{ width: 50%; }
 
 #contenitoreTesto3{ 
-    color: white;
-    background-color: #8B0000;
-    width: 50%; }
+  color: white;
+  background-color: #8B0000;
+  width: 50%; }
 
 #contenitoreTesto4{
-    background-color: darkgoldenrod; 
-    width: 30%; 
+  background-color: darkgoldenrod; 
+  width: 30%; 
 }
 
 a{ color:white; }
 
 #slideShow{ 
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    margin-top: 0px;
-    text-align: center;
-    background-color: black;
-    color: #8B0000;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 0px;
+  text-align: center;
+  background-color: black;
+  color: #8B0000;
 }
 
 #form{
-    margin-top: -45px;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-    text-align: center;
-    font-size: 20px;
+  margin-top: -45px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  text-align: center;
+  font-size: 20px;
 }
 
 input, #messaggio{
-    text-align: center;
-    width: 90%;
-    font-size: 20px;
-    padding: 10px;
+  text-align: center;
+  width: 90%;
+  font-size: 20px;
+  padding: 10px;
 }
 
 input{ border-radius: 5px; }
@@ -365,56 +376,63 @@ input{ border-radius: 5px; }
 p{ font-size: 22px; }
 
 #invia{
-    color: white;
-    font-size: 20px;
-    background-color: #8B0000;
-    border: 1px solid #8B0000;
-    border-radius: 15px;
-    width: 60%;
-    padding: 10px;
-    text-align: center;
-    align-items: center;
-    cursor: pointer;
-    /* Sul passaggio del mouse sopra il tasto di invio richiesta, si applica un effetto transitorio soft insieme al successivo */
-    transition: transform 0.2s ease-in-out;
+  color: white;
+  font-size: 20px;
+  background-color: #8B0000;
+  border: 1px solid #8B0000;
+  border-radius: 15px;
+  width: 60%;
+  padding: 10px;
+  text-align: center;
+  align-items: center;   /* Si centra verticalmente il testo all'interno del tasto di invio. */
+  cursor: pointer;
+  /* Sul passaggio del mouse sopra il tasto di invio, si applica un effetto transitorio di durata 0.2 secondi, in cui l'animazione parte lenta, accelera a metà, rallenta alla fine. */
+  transition: transform 0.2s ease-in-out;
 }
 
+/* Effetto di ingrandimento del tasto di invio al passaggio del mouse del 1% (1.01). */
 #invia:hover{ 
-    color: lightyellow;
-    transform: scale(1.01); 
+  color: lightyellow;
+  transform: scale(1.01); 
 }
 
+/* Caratteristiche comuni per mail e numeri di telefono. */
 #mail, #numero1, #numero2{ 
-    color: black; 
-    text-decoration: none;
-    transform-origin: left center;
-    transition: transform 1s ease, text-shadow 0.5s ease, color 0.8s ease;
+  color: black; 
+  text-decoration: none;   /* Si toglie la sottolineatura perchè sono link e ce l'hanno predefinita. */
+  transform-origin: left center;   /* Si imposta il punto di origine per le trasformazioni (ingrandimento, spostamento) al centro sinistra dell'elemento. */
+  transition: 
+    transform 1s ease,   /* Transizione per le trasformazioni (ingrandimento, spostamento) con durata di 1 secondo e effetto di easing (parte veloce e rallenta alla fine). */
+    text-shadow 0.5s ease, 
+    color 0.8s ease;
 }
 
+/* Sul passaggio del mouse sopra la mail e i numeri di telefono, si applica un effetto di colore. */
 #mail:hover{  
-    text-shadow: 0 0 5px lightcoral;
-    color: darkred; 
+  text-shadow: 0 0 5px lightcoral;
+  color: darkred; 
 }
 
 #numero1:hover, #numero2:hover{
-    text-shadow: 0 0 2px darkblue;
-    color: darkblue 
+  text-shadow: 0 0 2px darkblue;
+  color: darkblue 
 }
 
 #instagram1, #instagram2, #facebook, #whatsapp{ 
-    display: inline-block; /* serve per transform */
-    font-style: italic;
-    color: black; 
-    text-decoration: none;
-    transform-origin: left center;
-    transition: 
-      transform 1s ease, 
-      color 0.5s ease;
+  display: inline-block;   /* Si imposta il display come inline-block per permettere di applicare le trasformazioni e mantenere la disposizione in linea. */
+  font-style: italic;
+  color: black; 
+  text-decoration: none;   /* Si toglie la sottolineatura perchè sono link e ce l'hanno predefinita. */
+  transform-origin: left center;   /* Si imposta il punto di origine per le trasformazioni (ingrandimento, spostamento) al centro sinistra dell'elemento. */
+  /* Effetto transitorio per le trasformazioni e il cambio di colore. */
+  transition: 
+    transform 1s ease,   /* Transizione per le trasformazioni (ingrandimento, spostamento) con durata di 1 secondo e effetto di easing (parte veloce e rallenta alla fine). */
+    color 0.5s ease;
 }
 
 /* Sul passaggio del mouse sopra le icone dei social, si applica un effetto transitorio più soft. */
 #instagram1:hover, #instagram2:hover, #facebook:hover, #whatsapp:hover{ 
-  /* Si applica un effetto di ingrandimento e spostamento verso l'alto. */
+  /* Si applica un effetto di ingrandimento del 6% (1.06) e spostamento verso l'alto di 1 pixel. */
   transform: 
     translateY(-1px) 
     scale(1.06); 
@@ -522,7 +540,3 @@ p{ font-size: 22px; }
   }
   #bottoneSelezione, #selezionato, #tendina1, #tendina2, #tendina3, #tendina4{ font-size: 24px; }
 }
-
-
-
-
