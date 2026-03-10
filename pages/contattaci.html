@@ -2,11 +2,11 @@
 <html lang="it-IT">
 <head>
     <meta charset="UTF-8">
-    <!-- Serve controllare come la pagina web viene visualizzata su dispositivi mobili e schermi di diverse dimensioni -->
+    <!-- Serve controllare come la pagina web viene visualizzata su dispositivi mobili e schermi di diverse dimensioni. -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Tenuta Tigliano</title>
-    <link rel="icon" href="../img/icona.ico" />   <!-- Icona che rappresenta il logo posta nel tab del browser -->
-    <link rel="stylesheet" href="../css/style.css">   <!-- Link al CSS -->
+    <link rel="icon" href="../img/icona.ico" />   <!-- Icona che rappresenta il logo posta nel tab del browser. -->
+    <link rel="stylesheet" href="../css/style.css">   <!-- Link al CSS. -->
 </head>
 <body>
     <div id="barra-titolo"></div>
@@ -15,13 +15,13 @@
         <div id="contenitorePrincipale3">
             <div id="formContattaci">
                 <p><strong>Scrivici pure, risponderemo il prima possibile.</strong></p><br>
-                <!-- Utilizzo del servizio mail di formsubmit -->
+                <!-- Utilizzo del servizio mail di formsubmit che permette di inviare messaggi via email. -->
                 <br><form id="form" action="https://formsubmit.co/gjergjcoli@outlook.com" method="post">
-                    <!-- Disattivazione Recaptcha -->
+                    <!-- Disattivazione Recaptcha per evitare spam. -->
                     <br><input type="hidden" name="_captcha" value="false">
-                    <!-- Oggetto personalizzato -->
+                    <!-- Oggetto personalizzato. -->
                     <input type="hidden" name="_subject" value="Messaggio dalla pagina TENUTA TIGLIANO">
-                    <!-- Honey-pot per evitare spam -->
+                    <!-- Honey-pot per evitare spam. -->
                     <input type="text" name="_honey" style="display:none">
                     <br>
                     <input type="text" id="nome" name="nome"
@@ -34,7 +34,7 @@
                            title="Solo lettere con eventuali spazi, di cui la prima lettera è maiuscola"
                            placeholder="Il tuo cognome"
                            required><br><br>
-                    <!-- Si impone la prima cifra 0 per i numeri fissi e 3 per i numeri telefonici -->
+                    <!-- Si impone la prima cifra 0 per i numeri fissi e 3 per i numeri telefonici. -->
                     <input type="tel" id="telefono" name="telefono"
                            pattern="^[03][0-9]{9}$"
                            title="10 cifre, di cui la prima deve essere 3 o 0"   
@@ -131,11 +131,11 @@
             <br><a href="../pages/cookie-policy.html">Cookie Policy</a>&nbsp;&nbsp;&nbsp;<a href="../pages/privacy-policy.html">Privacy Policy</a>
         </footer>
     </div>
-    <!-- Si sale di una base -->
+    <!-- Si sale di una base. -->
     <script>
         window.basePath="../";    
     </script>
-    <!-- Si richiama lo script che agisce sul body della pagina -->
+    <!-- Si richiama lo script che agisce sul body della pagina e quello sull'invio del messaggio. -->
     <script src="../js/script.js" data-base="../"></script>
     <script src="../js/notifica.js"></script>
 </body>
