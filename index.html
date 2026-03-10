@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Serve controllare come la pagina web viene visualizzata su dispositivi mobili e schermi di diverse dimensioni -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Serve controllare come la pagina web viene visualizzata su dispositivi mobili e schermi di diverse dimensioni. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
     <title>Tenuta Tigliano</title>
-    <link rel="icon" href="img/icona.ico">   <!-- Icona che rappresenta il logo posta nel tab del browser -->
-    <link rel="stylesheet" href="css/style.css">   <!-- Link al CSS -->
+    <link rel="icon" href="img/icona.ico">   <!-- Icona che rappresenta il logo posta nel tab del browser. -->
+    <link rel="stylesheet" href="css/style.css">   <!-- Link al CSS. -->
 </head>
 <body>
     <div id="barra-titolo"></div>
@@ -28,25 +28,39 @@
             <div id="slideShow">
                 <h1 id="testoSlide" style="font-style:initial;">Immagini dalla nostra cantina</h1>
                 <div id="contenitoreSlide">
+                    <!-- Pulsanti per navigare tra le immagini dello slideshow. -->
                     <button id="prev">‹</button>
-                    <img id="slide" src="img/slide1.jpg" alt="Slide">
+                    <img id="slide" src="img/slide1.jpg" alt="Slide">   <!-- Immagine dello slideshow, si sceglie la prima immagine come predefinita. -->
                     <button id="next">›</button>
                 </div>
+                <!-- Script per lo slideshow, con effetto di dissolvenza tra un'immagine e l'altra. -->
                 <script>
+                    // Array con i percorsi delle immagini dello slideshow, in ordine.
                     const imgs = ["img/slide1.jpg","img/slide2.jpg","img/slide3.jpg","img/slide4.jpg"];
+                    /* Indice corrente dell'immagine mostrata.
+                       Parte da 0, quindi la prima è imgs[0] = slide1.jpg. */
                     let i = 0;
-                    const slide = document.getElementById("slide");
+                    const slide = document.getElementById("slide");   // Riferimento all'elemento <img id="slide"> nel DOM.
 
+                    // Funzione che cambia slide verso un indice richiesto (avanti o indietro).
                     function changeTo(newIndex){
+                        /* Si gestisce l'indice in modo "circolare":
+                            - se vai oltre l'ultima, riparte dalla prima;
+                            - se vai prima della prima, passa all'ultima. */
                         i = (newIndex + imgs.length) % imgs.length;
+                        // Si aggiunge la classe CSS per avviare l'effetto di dissolvenza in uscita.
                         slide.classList.add("fade-out");
+                        // Si aspetta 180ms (tempo dell'animazione di uscita), poi cambia il file immagine.
                         setTimeout(() => {
-                        slide.src = imgs[i];
-                        slide.onload = () => slide.classList.remove("fade-out");
+                            slide.src = imgs[i];
+                           // Quando la nuova immagine è stata caricata, si rimuove la classe fade-out per farla riapparire.
+                            slide.onload = () => slide.classList.remove("fade-out");
                         }, 180);
                     }
 
+                    // Click sul pulsante "prev" decrementa l'indice e mostra la slide precedente.
                     document.getElementById("prev").onclick = () => changeTo(i - 1);
+                    // Click sul pulsante "next" incrementa l'indice e mostra la slide successiva.
                     document.getElementById("next").onclick = () => changeTo(i + 1);
                 </script>
             </div>
@@ -57,11 +71,11 @@
             <br><a href="pages/cookie-policy.html">Cookie Policy</a>&nbsp;&nbsp;&nbsp;<a href="pages/privacy-policy.html">Privacy Policy</a>        
         </footer>
     </div>
-    <!-- Per avere una base di partenza per linkarmi a cartelle e sottocartelle tramite i vari path, evitando percorsi assoluti -->
+    <!-- Per avere una base di partenza per linkarmi a cartelle e sottocartelle tramite i vari path, evitando percorsi assoluti. -->
     <script>
         window.basePath="";
     </script>
-    <!-- Si richiama lo script che agisce sul body della pagina -->
+    <!-- Si richiama lo script che agisce sul body della pagina. -->
     <script src="js/script.js"></script>
 </body>
 </html>
